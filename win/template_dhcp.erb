@@ -1,0 +1,19 @@
+option domain-name-servers <%= @domain_name_server%>;
+
+default-lease-time <%= @default%>;
+max-lease-time <%= @max%>;
+
+<% @data_subnet.each_hash do |row_subnet| %>
+subnet <%= row_subnet['subnet']%> netmask <%= row_subnet['netmask']%> {
+        range <%= row_subnet['range1']%> <%= row_subnet['range2']%>;
+	option broadcast-address <%= row_subnet['broadcast']%>;
+	option routers <%= row_subnet['router']%>;
+}
+<% end %>
+<% @data_dhcp.each_hash do |row1| -%>
+host <%= row1['name']%> {
+	hardware ethernet <%= row1['hw']%>;
+	fixed-address <%= row1['ip']%>;
+}
+<%- end -%>
+
