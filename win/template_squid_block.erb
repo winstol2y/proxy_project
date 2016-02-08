@@ -7,17 +7,23 @@ acl CONNECT method CONNECT
 http_access allow localhost manager
 #http_access deny manager
 
-http_access deny !Safe_ports
-
 #http_access allow localnet
 http_access allow localhost
 
 # And finally deny all other access to this proxy
 #http_access deny all
 
+
 # Squid normally listens to port 3128
 http_port 12345
 
+#test 
+acl block_url url_regex -i "/etc/squid3/block_url.temp"
+http_access deny block_url
+acl test_upload url_regex -i ftp http https .mp3 .mp4 .iso .wav .wma .dat .cda .wm .mid .midi .dat google youtube mediafire
+ .rar .zip
+
+http_access allow all
 # Leave coredumps in the first cache dir
 coredump_dir /var/spool/squid3
 
@@ -31,10 +37,12 @@ refresh_pattern (Release|Packages(.gz)*)$      0       20%     2880
 #refresh_pattern (\.deb|\.udeb)$   129600 100% 129600
 refresh_pattern .               0       20%     4320
 
-acl accountant src 192.168.0.0/24
+acl bw_users src 10.0.0.2 10.0.0.5 10.0.0.11 10.0.0.4 10.0.0.222
+delay_pools 2
+delay_class 1 1
+delay_parameters 1 256000/256000
+delay_access 1 allow bw_users
 
-<% @data_squid_block.each_hash do |row_squid_block| -%>
-acl <%= row_squid_block['name']%> dstdomain <%= row_squid_block['url']%>
-http_access deny <%= row_squid_block['name']%>
-
-<%- end -%>
+delay_class 2 1
+delay_parameters 2 28000/28000 2480/4960
+delay_access 2 deny test_upload

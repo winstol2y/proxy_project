@@ -39,7 +39,7 @@ else{
 	fwrite($a,$_POST["macAddress_add"]);
 	fclose($a);
 	
-	$result = shell_exec("sed -e 's/[[:punct:]]//g' -e 's/[[:space:]]//g' /var/www/html/win/macAddress_add.txt");
+	$result = shell_exec("sed -e 's/[[:punct:]]//g' -e 's/[[:space:]]//g' /var/www/html/oak2/macAddress_add.txt");
 	$result1 = trim($result);
 	$numCharecter=strlen($result1);
 
@@ -49,7 +49,7 @@ else{
  	
 	$a = '\'s/[[:xdigit:]]\{2\}/&:/g\'';
 	$b = '\'$s/.$//\'';
-	$result_mac = shell_exec("sed -e $a -e $b /var/www/html/win/macAddress_add1.txt");
+	$result_mac = shell_exec("sed -e $a -e $b /var/www/html/oak2/macAddress_add1.txt");
 
 	$c=fopen("macAddress_add2.txt", "w");
 	fwrite($c,$result_mac);
@@ -66,10 +66,6 @@ else{
 		$result_mac = trim($result_mac);
 		$mac_query = "SELECT * FROM `class1` WHERE `hw` = '".$result_mac."'";
 		$checkMac = mysql_query("$mac_query");
-
-		$result_zone = trim($_POST["zone_add"]);
-		$zone_query = "SELECT * FROM `class1` WHERE `hostname` = '".$result_zone."'";
-		$checkZone = mysql_query("$zone_query");
 		
 		$result_name = trim($_POST["name_add"]);
 		$name_query = "SELECT * FROM `class1` WHERE `name` = '".$result_name."'";
@@ -81,9 +77,6 @@ else{
 
 		if(mysql_num_rows($checkMac) > 0){
  			echo "Mac Address exists already.";
-		}
-		elseif(mysql_num_rows($checkZone) > 0){
-			echo "Host Name exists already.";
 		}
 		elseif(mysql_num_rows($checkName) > 0){
 			echo "Name exists already.";

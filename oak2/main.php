@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if($_SESSION["login_ok"] != 1)
+  {
+    header( "location:index.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

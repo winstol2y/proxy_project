@@ -2,9 +2,8 @@
 require 'erb'
 require 'mysql'
 class Squid_block_header
-        def initialize data_squid_block, data_port_header
-                @data_squid_block = data_squid_block
-		@data_port_header = data_port_header
+        def initialize data_squid_block
+	                @data_squid_block = data_squid_block
 	end
         def render path
                 content = File.read(File.expand_path(path))
@@ -12,35 +11,39 @@ class Squid_block_header
                 t.result(binding)
         end
 end
-#class Port_header
-#	def initialize data_port_header
-#		@data_port_header = data_port_header
-#	end
-#        def render path
-#                content = File.read(File.expand_path(path))
-#                t = ERB.new(content,nil,'%<>-')
-#                t.result(binding)
-#        end
-#end
-#class Named_config
-#	def initialize zone_union
-#		@zone_union = zone_union
-#	end
-#	def render path
-#		content = File.read(File.expand_path(path))
-#		t = ERB.new(content,nil,'%<>-')
-#		t.result(binding)
-#	end
-#end
+class Head_port_header
+        def initialize data_port_header
+                @data_port_header = data_port_header
+        end
+        def render path
+                content = File.read(File.expand_path(path))
+                t = ERB.new(content,nil,'%<>-')
+                t.result(binding)
+        end
+end
+class Time_file_header
+        def initialize time_file
+                @time_file = time_file
+        end
+        def render path
+                content = File.read(File.expand_path(path))
+                t = ERB.new(content,nil,'%<>-')
+                t.result(binding)
+        end
+end
+
+##########################################################################################################################
+
 
 	`rm /etc/squid3/squid.conf` # delete file squid.conf before create new file
 
 	con = Mysql.new 'localhost', 'root', 'qwerty', 'block' # connect sql
 
-####################################################### block url ########################################################
+
+####################################################### open - close port ################################################
+
 
 	data_port_header = con.query("SELECT * FROM `head_port`") # open and close port data
-	data_squid_block = con.query("SELECT * FROM block_url") # url data
 
 	insert_squid_block = Squid_block_header.new(data_squid_block,data_port_header) # insert data from query to class
 
@@ -48,5 +51,28 @@ end
 	file_squid_block.puts insert_squid_block.render("/var/www/html/win/template_squid_block.erb") # sent data to template 
 	file_squid_block.close # close file config
 
-##########################################################################################################################
+
+###################################################### block url ########################################################
+
+	
+	file_time = con.query("SELECT time FROM block_url UNION SELECT time FROM block_url") # url data
+
+	file_time.each_hash do |rows|
+		time = rows['time']
+		file_time_url = "/etc/squid3/#{rows['time']}"
+		data_url = con.query("SELECT * FROM block_url WHERE block.`time` = '#{time}'")
+		file_time = File.open(file_time_url, 'w')
+		insert_file_time = Time_file_header.new(time_file)
+		time_file.puts insert_file_time.render("/var/www/html/win/template_squid_block.erb")
+		file_time.close # close file config
+	end
+
+
+
+
+
+
+
+
+
 

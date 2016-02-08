@@ -2,6 +2,7 @@ option domain-name-servers <%= @domain_name_server%>;
 
 default-lease-time <%= @default%>;
 max-lease-time <%= @max%>;
+lease-file-name "/var/db/dhcpd/dhcpd.leases";
 
 <% @data_subnet.each_hash do |row_subnet| %>
 subnet <%= row_subnet['subnet']%> netmask <%= row_subnet['netmask']%> {

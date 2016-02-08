@@ -62,7 +62,7 @@ end
 	file_dhcp.puts insert_dhcp.render("/var/www/html/win/template_dhcp.erb")
 	file_dhcp.close
 
-	file_dhcp = File.open("/var/www/html/win/interface", 'w')
+	file_dhcp = File.open("/etc/network/interfaces", 'w')
 	file_dhcp.puts insert_dhcp.render("/var/www/html/win/template_eth0.erb")
 	file_dhcp.close
 

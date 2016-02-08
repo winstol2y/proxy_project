@@ -19,7 +19,7 @@
   </head>
 
   <body>
-  
+
     <?php include ("./modalbar.php");?>
     
     <div class="wrapper">
@@ -65,12 +65,36 @@
                     
                     <div class="row">
                       <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">Expire :</h4> 
+                        <h4 align="right">Time Start :</h4> 
                       </div>
                       <div class="col-sm-3">
-                        <input class="form-control" name="time_add" type="text" placeholder="Ex. : yyyy-mm-dd"/>
+                        <input class="form-control" name="time_start" type="text" placeholder="Ex. : hh:mm"/>
                       </div>
                     </div>
+
+                    <div class="row">
+                      <div class="col-sm-2 col-sm-offset-3">
+                        <h4 align="right">Time End :</h4> 
+                      </div>
+                      <div class="col-sm-3">
+                        <input class="form-control" name="time_end" type="text" placeholder="Ex. : hh:mm"/>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-2 col-sm-offset-3">
+                        <h4 align="right">Day :</h4> 
+                      </div>
+                      <label class="checkbox-inline"><input type="checkbox" value="">Sunday</label>
+                      <label class="checkbox-inline"><input type="checkbox" value="">Monday</label>
+                      <label class="checkbox-inline"><input type="checkbox" value="">Tuesday</label>
+                      <label class="checkbox-inline"><input type="checkbox" value="">Wednesday</label>
+                      <label class="checkbox-inline"><input type="checkbox" value="">Thursday</label>
+                      <label class="checkbox-inline"><input type="checkbox" value="">Friday</label>
+                      <label class="checkbox-inline"><input type="checkbox" value="">Saturday</label>
+
+                    </div>
+                        
                     
                     <div class="row">
                       <div class="col-sm-1 col-sm-offset-5">
@@ -80,7 +104,7 @@
                       </div>
                     </div>
                   </form>
-
+                  <?php /*
                   <div class="row">
                     <div class="col-sm-12">
                         <h2 align="center">Display</h2> 
@@ -111,16 +135,16 @@
                           echo '</tr>';
                           
                           while($my_row1=mysql_fetch_array($my_result)){
-                                  table("$i");
+                            table("$i");
                             table($my_row1["name"]);
-                                  table($my_row1["url"]);
-                                  table($my_row1["expire"]);
-                                  table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/deleteDB/delete_url.php?url='.trim($my_row1["url"]).'>Delete</button>');
-                                  $i++;
-                                  echo '</tr>';
+                            table($my_row1["url"]);
+                            table($my_row1["expire"]);
+                            table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/deleteDB/delete_url.php?url='.trim($my_row1["url"]).'>Delete</button>');
+                            $i++;
+                            echo '</tr>';
                           }
-
-                          mysql_close($con);
+                          
+                          mysql_close($con);*/
                           ?>
                         </thead>
                       </table>

@@ -62,6 +62,15 @@
 
                     <div class="row">
                       <div class="col-sm-2 col-sm-offset-3">
+                        <h4 align="right">IP Address :</h4> 
+                      </div>
+                      <div class="col-sm-3">
+                        <input class="form-control" name="ip_add" type="text" placeholder="10.0.0.2 - 10.10.255.254"/>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-sm-2 col-sm-offset-3">
                         <h4 align="right">Name :</h4> 
                       </div>
                       <div class="col-sm-3">
@@ -71,19 +80,10 @@
 
                     <div class="row">
                       <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">IP Address :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="ip_add" type="text" placeholder="10.0.0.2 - 10.10.255.254"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
                         <h4 align="right">Expire :</h4> 
                       </div>
                       <div class="col-sm-3">
-                        <input class="form-control" name="ip_add" type="text" placeholder="Ex : yyyy-mm-dd"/>
+                        <input class="form-control" name="time_add" type="text" placeholder="Ex : yyyy-mm-dd"/>
                       </div>
                     </div>
 
@@ -159,7 +159,6 @@
                                 table($my_row1["hw"]);
                                 table($my_row1["ip"]);
                                 table($my_row1["name"]);
-                                table($my_row1["zone"]);
                                 table($my_row1["expire"]);
                                 table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/deleteDB/delete_dhcp1.php?ip='.trim($my_row1["ip"]).'&mac='.trim($my_row1["hw"]).'>Delete</button>');
                                 $i++;

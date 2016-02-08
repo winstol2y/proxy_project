@@ -31,11 +31,7 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
                     <ul class="dropdown-menu">
-                      <li><a href="">More</a></li>
-                      <li><a href="">More</a></li>
-                      <li><a href="">More</a></li>
-                      <li><a href="">More</a></li>
-                      <li><a href="">More</a></li>
+                      <li><a href="./logout.php">Log Out</a></li>
                     </ul>
                   </li>
                 </ul>
