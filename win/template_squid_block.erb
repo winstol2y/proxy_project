@@ -17,11 +17,14 @@ http_access allow localhost
 # Squid normally listens to port 3128
 http_port 12345
 
-#test 
-acl block_url url_regex -i "/etc/squid3/block_url.temp"
-http_access deny block_url
-acl test_upload url_regex -i ftp http https .mp3 .mp4 .iso .wav .wma .dat .cda .wm .mid .midi .dat google youtube mediafire
- .rar .zip
+<% @data_block_url.each_hash do |row_block_url| -%>
+acl time_<%= row_block_url['file_name'] %> time <%= row_block_url['block_date_time']%> 
+acl <%= row_block_url['file_name'] %> url_regex -i "/etc/squid3/<%=row_block_url['file_name']%>"
+http_access deny <%= row_block_url['file_name']%> time_<%= row_block_url['file_name']%>
+
+<%- end -%>
+
+acl test_upload url_regex -i ftp http https .mp3 .mp4 .iso .wav .wma .dat .cda .wm .mid .midi .dat google youtube mediafire .rar .zip
 
 http_access allow all
 # Leave coredumps in the first cache dir

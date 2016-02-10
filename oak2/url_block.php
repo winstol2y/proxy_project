@@ -85,14 +85,13 @@
                       <div class="col-sm-2 col-sm-offset-3">
                         <h4 align="right">Day :</h4> 
                       </div>
-                      <label class="checkbox-inline"><input type="checkbox" value="">Sunday</label>
-                      <label class="checkbox-inline"><input type="checkbox" value="">Monday</label>
-                      <label class="checkbox-inline"><input type="checkbox" value="">Tuesday</label>
-                      <label class="checkbox-inline"><input type="checkbox" value="">Wednesday</label>
-                      <label class="checkbox-inline"><input type="checkbox" value="">Thursday</label>
-                      <label class="checkbox-inline"><input type="checkbox" value="">Friday</label>
-                      <label class="checkbox-inline"><input type="checkbox" value="">Saturday</label>
-
+                      <label class="checkbox-inline"><input type="checkbox" name="day[]" value="S">Sunday</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="day[]" value="M">Monday</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="day[]" value="T">Tuesday</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="day[]" value="W">Wednesday</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="day[]" value="H">Thursday</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="day[]" value="F">Friday</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="day[]" value="A">Saturday</label>
                     </div>
                         
                     

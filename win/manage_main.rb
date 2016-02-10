@@ -2,19 +2,10 @@
 require 'erb'
 require 'mysql'
 class Squid_block_header
-        def initialize data_squid_block
-	                @data_squid_block = data_squid_block
+        def initialize data_port_header, data_block_url
+		@data_port_header = data_port_header
+		@data_block_url = data_block_url
 	end
-        def render path
-                content = File.read(File.expand_path(path))
-                t = ERB.new(content,nil,'%<>-')
-                t.result(binding)
-        end
-end
-class Head_port_header
-        def initialize data_port_header
-                @data_port_header = data_port_header
-        end
         def render path
                 content = File.read(File.expand_path(path))
                 t = ERB.new(content,nil,'%<>-')
@@ -44,8 +35,9 @@ end
 
 
 	data_port_header = con.query("SELECT * FROM `head_port`") # open and close port data
+	data_block_url = con.query("SELECT `file_name`, `block_date_time` FROM block_url UNION SELECT `file_name`, `block_date_time` FROM block_url") 
 
-	insert_squid_block = Squid_block_header.new(data_squid_block,data_port_header) # insert data from query to class
+	insert_squid_block = Squid_block_header.new(data_port_header,data_block_url) # insert data from query to class
 
 	file_squid_block = File.open("/etc/squid3/squid.conf", 'w') # open file config
 	file_squid_block.puts insert_squid_block.render("/var/www/html/win/template_squid_block.erb") # sent data to template 
@@ -55,15 +47,15 @@ end
 ###################################################### block url ########################################################
 
 	
-	file_time = con.query("SELECT time FROM block_url UNION SELECT time FROM block_url") # url data
-
+	#file_time = con.query("SELECT time FROM block_url UNION SELECT time FROM block_url") # url data
+	file_time = con.query("SELECT `file_name`,`block_date_time` FROM block_url UNION SELECT `file_name`,`block_date_time` FROM block_url")
 	file_time.each_hash do |rows|
-		time = rows['time']
-		file_time_url = "/etc/squid3/#{rows['time']}"
-		data_url = con.query("SELECT * FROM block_url WHERE block.`time` = '#{time}'")
+		url = rows['file_name']
+		file_time_url = "/etc/squid3/#{rows['file_name']}"
+		data_url = con.query("SELECT * FROM block_url WHERE `file_name` = '#{url}'")
 		file_time = File.open(file_time_url, 'w')
-		insert_file_time = Time_file_header.new(time_file)
-		time_file.puts insert_file_time.render("/var/www/html/win/template_squid_block.erb")
+		insert_file_time = Time_file_header.new(data_url)
+		file_time.puts insert_file_time.render("/var/www/html/win/template_file_time.erb")
 		file_time.close # close file config
 	end
 

@@ -1,49 +1,64 @@
 <?php
-include("connect.php");
+	shell_exec("/var/www/html/oak2/temp_time.temp");
+	/*if(isset($_POST['day'])) {echo "yes";}
+	else {echo "no";}
+	echo "<pre>";
+	print_r($_POST);
+	echo "</pre>";*/
+	$days="";
+	foreach ($_POST["day"] as $day) {
+		$days = $days.$day;
+	}
+	$servername = "localhost";
+	$username = "root";
+	$password = "qwerty";
+	$dbname = "block";
 
-date_default_timezone_set("Asia/Bangkok"); //set time zone
-date_default_timezone_get();
-$t1 = date('d-m-Y'); //time now
-$t2 = $_POST["time_add"];
+	$con = mysql_connect($servername,$username,$password) or die (mysql_error("Error connect"));
+		mysql_select_db($dbname) or die (mysql_error("Error database"));
 
-$date1=date_create("$t1");
-$date2=date_create("$t2");
-$diff=date_diff($date1,$date2);
-$date11 = $diff->format("%R%a");
-$date12 = (int)$date11;
-
-if(empty($_POST["name_add"])){
-	echo "กรุณากรอก Name";
-}
-elseif(empty($_POST["url_add"])){
-	echo "กรุณากรอก URL";
-}
-elseif(empty($_POST["time_add"])){
-	echo "กรุณากรอก Expire";
-}
-elseif($date12 < 0){
-	echo "กรุณาใส่วันที่มากกว่านี้";
-}
-else{
-	$a=fopen("url_check.txt", "w");
-	fwrite($a,$_POST["url_add"]);
-	fclose($a);
-	
-	$result = shell_exec("grep -c ' ' /var/www/html/oak2/url_check.txt");
-
-	if($result > 0){
-		echo "ห้ามมีช่องว่าง";
+	if(empty($_POST["name_add"])){
+		echo "กรุณากรอก Name";
+	}
+	elseif(empty($_POST["url_add"])){
+		echo "กรุณากรอก URL";
+	}
+	elseif(empty($_POST["time_start"])){
+		echo "กรุณาเวลาเริ่มต้น";
+	}
+	elseif(empty($_POST["time_end"])){
+		echo "กรุณากรอกเวลาสุดท้าย";
+	}
+	elseif (empty($_POST["day"])){
+		echo "Check Block Day";
 	}
 	else{
+		$timetoDB = $_POST["time_start"]."-".$_POST["time_end"];
+		$a=fopen("url_check.txt", "w");
+		fwrite($a,$_POST["url_add"]);
+		fclose($a);
+		
+		$result = shell_exec("grep -c ' ' /var/www/html/oak2/url_check.txt");
 
-	$query_add = "INSERT INTO `block`.`block_url` (`name` , `url` , `expire`) VALUES ('".$_POST["name_add"]."','".$_POST["url_add"]."','".$_POST["time_add"]."')";
+		$b=fopen("cut_colon.temp", "w");
+		fwrite($b,$timetoDB);
+		fclose($b);
 
-	mysql_query($query_add) or die(mysql_error());
-	header('Location: url_block.php');
-	shell_exec("/var/www/html/oak2/manage_main.rb");
-	shell_exec('/var/www/html/oak2/restart_service.sh'); //run shell restart service
+		
+		$time_name = shell_exec("sed 's/:/_/g' /var/www/html/oak2/cut_colon.temp > temp_time.temp && sed 's/-/_/g' /var/www/html/oak2/temp_time.temp");
+		if($result > 0){
+			echo "ห้ามมีช่องว่าง";
+		}
+		else{
+			$filenametoDB = $days."_".$time_name;
+			$blockdatetoDB = $days." ".$timetoDB;
+			$query_add = "INSERT INTO `block`.`block_url` (`name` , `url` , `time`,`day`,`file_name`,`block_date_time`) VALUES ('".$_POST["name_add"]."','".$_POST["url_add"]."','".$timetoDB."','".$days."','".$filenametoDB."','".$blockdatetoDB."')";	
+			mysql_query($query_add) or die(mysql_error());
+			header('Location: url_block.php');
+		//shell_exec("/var/www/html/oak2/manage_main.rb");
+		//shell_exec('/var/www/html/oak2/restart_service.sh'); //run shell restart service
 
+		}
 	}
-}
-mysql_close($con);
-?> 
+	mysql_close($con);
+	?> 
