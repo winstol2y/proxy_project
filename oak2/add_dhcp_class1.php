@@ -85,8 +85,20 @@ else{
 			echo "IP address exists already.";
 		}
 		else{
+			
+			$rangeStart = ip2long("10.0.0.1");
+			$rangeEnd = ip2long("10.9.255.255");
+			$rangeIp = ip2long($_POST['ip_add']);
+
 			if(preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']) == 0){
 				echo "Change name";
+				echo preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']); 
+			}
+                        elseif(preg_match("/^[a-fA-F0-9]+$/", $result) == 0){
+                                echo "Please check macaddress between A-F, a-f, 0-9";
+                        }
+			elseif($rangeIp < $rangeStart or $rangeIp > $rangeEnd){
+				echo "Change Ip Address between 10.0.0.2 - 10.9.255.254";
 			}
 			else{
 				$query_add = "INSERT INTO `dhcp`.`class1` (`hw`, `name`, `ip`, `expire`) VALUES ('".$result_mac."','".$_POST["name_add"]."','".$_POST["ip_add"]."','".$_POST["time_add"]."')";
@@ -96,7 +108,7 @@ else{
 				
 				#shell_exec("./manage_dhcp");
 
-				shell_exec('./restart_service_dhcp.sh'); //run shell restart service
+				#shell_exec('./restart_service_dhcp.sh'); //run shell restart service
 			}
 		}
 	}

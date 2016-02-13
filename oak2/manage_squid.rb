@@ -40,7 +40,7 @@ end
 	insert_squid_block = Squid_block_header.new(data_port_header,data_block_url) # insert data from query to class
 
 	file_squid_block = File.open("/etc/squid3/squid.conf", 'w') # open file config
-	file_squid_block.puts insert_squid_block.render("/var/www/html/win/template_squid_block.erb") # sent data to template 
+	file_squid_block.puts insert_squid_block.render("/var/www/html/oak2/template_squid_conf.erb") # sent data to template 
 	file_squid_block.close # close file config
 
 
@@ -55,7 +55,7 @@ end
 		data_url = con.query("SELECT * FROM block_url WHERE `file_name` = '#{url}'")
 		file_time = File.open(file_time_url, 'w')
 		insert_file_time = Time_file_header.new(data_url)
-		file_time.puts insert_file_time.render("/var/www/html/win/template_file_time.erb")
+		file_time.puts insert_file_time.render("/var/www/html/oak2/template_squid_file_time.erb")
 		file_time.close # close file config
 	end
 

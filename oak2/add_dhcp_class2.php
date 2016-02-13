@@ -39,7 +39,7 @@ else{
 	fwrite($a,$_POST["macAddress_add"]);
 	fclose($a);
 	
-	$result = shell_exec("sed -e 's/[[:punct:]]//g' -e 's/[[:space:]]//g' /var/www/html/win/macAddress_add.txt");
+	$result = shell_exec("sed -e 's/[[:punct:]]//g' -e 's/[[:space:]]//g' /var/www/html/oak2/macAddress_add.txt");
 	$result1 = trim($result);
 	$numCharecter=strlen($result1);
 
@@ -49,7 +49,7 @@ else{
  	
 	$a = '\'s/[[:xdigit:]]\{2\}/&:/g\'';
 	$b = '\'$s/.$//\'';
-	$result_mac = shell_exec("sed -e $a -e $b /var/www/html/win/macAddress_add1.txt");
+	$result_mac = shell_exec("sed -e $a -e $b /var/www/html/oak2/macAddress_add1.txt");
 
 	$c=fopen("macAddress_add2.txt", "w");
 	fwrite($c,$result_mac);
@@ -67,10 +67,6 @@ else{
 		$mac_query = "SELECT * FROM `class2` WHERE `hw` = '".$result_mac."'";
 		$checkMac = mysql_query("$mac_query");
 
-		$result_zone = trim($_POST["zone_add"]);
-		$zone_query = "SELECT * FROM `class2` WHERE `hostname` = '".$result_zone."'";
-		$checkZone = mysql_query("$zone_query");
-		
 		$result_name = trim($_POST["name_add"]);
 		$name_query = "SELECT * FROM `class2` WHERE `name` = '".$result_name."'";
 		$checkName = mysql_query("$name_query");
@@ -82,9 +78,6 @@ else{
 		if(mysql_num_rows($checkMac) > 0){
  			echo "Mac Address exists already.";
 		}
-		elseif(mysql_num_rows($checkZone) > 0){
-			echo "Host Name exists already.";
-		}
 		elseif(mysql_num_rows($checkName) > 0){
 			echo "Name exists already.";
 		}
@@ -92,18 +85,30 @@ else{
 			echo "IP address exists already.";
 		}
 		else{
-			if(preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']) == 0){
-				echo "Change name";
-			}
+
+                        $rangeStart = ip2long("10.10.0.1");
+                        $rangeEnd = ip2long("10.19.255.255");
+                        $rangeIp = ip2long($_POST['ip_add']);
+
+                        if(preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']) == 0){
+                                echo "Change name";
+                                echo preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']);
+                        }
+                        elseif(preg_match("/^[a-fA-F0-9]+$/", $result) == 0){
+                                echo "Please check macaddress between A-F, a-f, 0-9";
+                        }
+                        elseif($rangeIp < $rangeStart or $rangeIp > $rangeEnd){
+                                echo "Change Ip Address between 10.10.0.2 - 10.19.255.254";
+                        }
 			else{
 				$query_add = "INSERT INTO `dhcp`.`class2` (`hw`, `name`, `ip`, `expire`) VALUES ('".$result_mac."','".$_POST["name_add"]."','".$_POST["ip_add"]."','".$_POST["time_add"]."')";
 
 				mysql_query($query_add) or die(mysql_error());
 				header('Location: dhcp_class2.php');
 				
-#				shell_exec("./test.rb");
+				#shell_exec("./test.rb");
 
-				shell_exec('./restart_service_dhcp.sh'); //run shell restart service
+				#shell_exec('./restart_service_dhcp.sh'); //run shell restart service
 			}
 		}
 	}

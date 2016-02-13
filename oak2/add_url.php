@@ -1,10 +1,29 @@
 <?php
-	shell_exec("/var/www/html/oak2/temp_time.temp");
+	echo "<pre>";
+	print_r($_POST);
+	echo "</pre>";
+	$days="";
+
+	if($_POST["dayR"] == 'SMTWHFA')
+	{
+		$days = $_POST['dayR'];
+		
+	}
+	else if ($_POST['dayR'] == 'on')
+	{
+
+		foreach ($_POST["day"] as $day) {
+			$days = $days.$day;
+		}
+	}
+	echo "----------------------- <br>";
+	echo $days;
 	/*if(isset($_POST['day'])) {echo "yes";}
 	else {echo "no";}
 	echo "<pre>";
 	print_r($_POST);
 	echo "</pre>";*/
+	/*
 	$days="";
 	foreach ($_POST["day"] as $day) {
 		$days = $days.$day;
@@ -33,6 +52,9 @@
 		echo "Check Block Day";
 	}
 	else{
+
+		shell_exec('rm /var/www/html/oak2/temp_time.temp');
+
 		$timetoDB = $_POST["time_start"]."-".$_POST["time_end"];
 		$a=fopen("url_check.txt", "w");
 		fwrite($a,$_POST["url_add"]);
@@ -44,8 +66,12 @@
 		fwrite($b,$timetoDB);
 		fclose($b);
 
-		
-		$time_name = shell_exec("sed 's/:/_/g' /var/www/html/oak2/cut_colon.temp > temp_time.temp && sed 's/-/_/g' /var/www/html/oak2/temp_time.temp");
+		$win = shell_exec("sed 's/:/_/g' /var/www/html/oak2/cut_colon.temp");
+		$c=fopen("temp_time.temp", "w");
+		fwrite($c,$win);
+		fclose($c);
+
+		$time_name = shell_exec("sed 's/-/_/g' /var/www/html/oak2/temp_time.temp");
 		if($result > 0){
 			echo "ห้ามมีช่องว่าง";
 		}
@@ -60,5 +86,5 @@
 
 		}
 	}
-	mysql_close($con);
+	mysql_close($con);*/
 	?> 

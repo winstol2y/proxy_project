@@ -112,8 +112,29 @@
  
         <tr>
         <td align="right"><font size="3"><div>Name :</div></font></td>
-        <td><input class="form-control" name="name_add" type="text" /></td>
-        <td align="left">Only a-z, A-Z, 0-9 </td>
+	<div class="container">
+		<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker3'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+        </script>
+    </div>
+</div>
+        </div>
         </tr>
        
         <tr>
@@ -197,7 +218,6 @@ while($my_row1=mysql_fetch_array($my_result)){
         table($my_row1["hw"]);
         table($my_row1["ip"]);
         table($my_row1["name"]);
-        table($my_row1["zone"]);
         table($my_row1["expire"]);
         table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=delete_dhcp.php?ip='.trim($my_row1["ip"]).'&mac='.trim($my_row1["hw"]).'>Delete</button>');
         $i++;
@@ -214,6 +234,12 @@ mysql_close($con);
   <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/win.js"></script>
- 
+   
+  <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/transition.js"></script>
+<script type="text/javascript" src="js/collapse.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>
 </body>
 </html>

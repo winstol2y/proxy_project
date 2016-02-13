@@ -92,18 +92,30 @@ else{
 			echo "IP address exists already.";
 		}
 		else{
-			if(preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']) == 0){
-				echo "Change name";
-			}
+
+                        $rangeStart = ip2long("10.30.0.1");
+                        $rangeEnd = ip2long("10.39.255.255");
+                        $rangeIp = ip2long($_POST['ip_add']);
+
+                        if(preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']) == 0){
+                                echo "Change name";
+                                echo preg_match("/^[a-zA-Z0-9]+$/", $_POST['name_add']);
+                        }
+                        elseif(preg_match("/^[a-fA-F0-9]+$/", $result) == 0){
+                                echo "Please check macaddress between A-F, a-f, 0-9";
+                        }
+                        elseif($rangeIp < $rangeStart or $rangeIp > $rangeEnd){
+                                echo "Change Ip Address between 10.30.0.2 - 10.39.255.254";
+                        }
 			else{
 				$query_add = "INSERT INTO `dhcp`.`class4` (`hw`, `name`, `ip`, `expire`) VALUES ('".$result_mac."','".$_POST["name_add"]."','".$_POST["ip_add"]."','".$_POST["time_add"]."')";
 
 				mysql_query($query_add) or die(mysql_error());
 				header('Location: dhcp_class4.php');
 				
-#				shell_exec("./test.rb");
+				#shell_exec("./test.rb");
 
-				shell_exec('./restart_service_dhcp.sh'); //run shell restart service
+				#shell_exec('./restart_service_dhcp.sh'); //run shell restart service
 			}
 		}
 	}

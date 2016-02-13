@@ -6,7 +6,7 @@
 
   $con = mysql_connect($servername,$username,$password) or die (mysql_error("Error connect"));
   mysql_select_db($dbname) or die (mysql_error("Error database"));
-  $query_all_data = 'SELECT * FROM `block_url` ORDER BY id DESC';
+  $query_all_data = "SELECT * FROM `block_url`";
   $my_result = mysql_query($query_all_data);
 ?>
 
@@ -16,38 +16,13 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
+    <title>Proxy Web UI:URL Block</title>
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
-    <title>Proxy Web UI:URL Block</title>
-
-    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
-
-<!--
-    <script src="js/jquery.js"></script> 
-    <script src="js/moment.min.js"></script> 
-    <script src="js/combodate.js"></script> 
-    
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/moment.js"></script>
-    <script type="text/javascript" src="js/transition.js"></script>
-    <script type="text/javascript" src="js/collapse.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="dist/bootstrap-clockpicker.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="dist/jquery-clockpicker.css">
-    <script src="js/bootstrap.min.js"></script>-->
-
-    
+    <!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">-->
   </head>
 
   <body>
@@ -99,7 +74,7 @@
                         <h4 align="right">Time Start :</h4> 
                       </div>
                       <div class="col-sm-3">
-                        <input class="form-control" name="time_start" type="text" placeholder="Ex. : HH:MM "/>
+
                       </div>
                     </div>
 
@@ -108,20 +83,7 @@
                         <h4 align="right">Time End :</h4> 
                       </div>
                       <div class="col-sm-3">
-                        <div class='input-group date' id='datetimepicker'>
-                          <input type='text' class="form-control" />
-                          <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-time"></span>
-                          </span>
-                        </div>
-                        <script type="text/javascript">
-                          $(function () {
-                            $('#datetimepicker3').datetimepicker({
-                              format: 'LT'
-                            });
-                          });
-                        </script>
-
+                      
                       </div>
                     </div>
 
@@ -174,7 +136,7 @@
                             echo "$data";
                             echo '</th></div>';
                           }
-                          
+                          /*
                           echo '<tr>';
                                   table("  #  ");
                                   table('<a href=index.php?sort=name>Name</a>');
@@ -182,7 +144,7 @@
                                   table('<a href=index.php?sort=time>Block Time</a>');
                                   table('<a href=index.php?sort=time>Block Day</a>');
                                   table("Function");
-                          echo '</tr>';
+                          echo '</tr>';*/
                           $i = 1;
                           while($my_row1=mysql_fetch_array($my_result))
                           {
@@ -218,7 +180,7 @@
     </div>
 
 
-    <!--post modal
+    <!--post modal-->
     <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -241,7 +203,7 @@
           </div>
         </div>
       </div>
-    </div>-->
+    </div>
 
     <?php include ("./script.php");?>
     <script>
@@ -275,8 +237,19 @@
           document.getElementById("A").disabled = false;
         else
          document.getElementById("A").disabled = true;            
-      } 
+      }  
     </script>
-  
+
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js"></script>
+
+  	<script type="text/javascript">
+        $(function () {
+            $('#datetimepicker3').datetimepicker({
+                format: 'LT'
+            });
+        });
+    </script>
+
   </body>
 </html>
