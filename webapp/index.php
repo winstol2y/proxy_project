@@ -1,60 +1,32 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-<meta charset="UTF-8">
-<title>Tax7%</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>WebStore</title>
+  <link rel="stylesheet" href="css/loginstyle.css">
 </head>
-<style type="text/css">
-	tr{
-        text-align: center; 
-    }
-</style>
-<body>
-	<?php
-		$item1 = "ยาสระผม";
-		$item2 = "แปลง";
-		$item3 = "ยาสีฟัน";
-		$uItem1 = 1;
-		$uItem2 = 4;
-		$uItem3 = 2;
-		const pItem1 = 85;
-		const pItem2 = 55;
-		const pItem3 = 40;
-	?>
-	<table style="width:100%" border="1" align="center">
-  		<tr>
-    		<th>ชื่อ</th>
-    		<th>จำนวน</th>
-    		<th>ราคาต่อชิ้น</th>
-            <th>ราคาไม่รวมภาษี</th>
-            <th>ราคารวมภาษี</th>
-    	</tr>
-    	<tr>
-    		<td><?php echo $item1; ?></td>
-    		<td><?php echo $uItem1; ?></td>
-    		<td><?php echo pItem1; ?></td>
-            <td><?php echo pItem1*$uItem1; ?></td>
-            <td><?php echo ((pItem1*$uItem1)*1.07); ?></td>
-    	</tr>
-    	
-    	<tr>
-    		<td><?php echo $item2; ?></td>
-    		<td><?php echo $uItem2; ?></td>
-    		<td><?php echo pItem2; ?></td>
-            <td><?php echo pItem2*$uItem2; ?></td>
-            <td><?php echo ((pItem2*$uItem2)*1.07); ?></td>
-    	</tr>
-    	
-    	<tr>
-    		<td><?php echo $item3; ?></td>
-    		<td><?php echo $uItem3; ?></td>
-    		<td><?php echo pItem3; ?></td>
-            <td><?php echo pItem3*$uItem3; ?></td>
-            <td><?php echo ((pItem3*$uItem3)*1.07); ?></td>
-    	</tr>
 
-  		
-	</table>
-    ราคารวมสินค้า <?php echo $uItem1+$uItem2+$uItem3; ?> ชิ้น =  <?php echo ((pItem1*$uItem1)*1.07)+((pItem2*$uItem2)*1.07)+((pItem3*$uItem3)*1.07); ?>
+<body>
+  <section class="container">
+   <!--<p><img src="logo.png" width="359" height="110"></p>-->
+    <p>&nbsp;</p>
+    <p></p>
+    <div class="login">
+      <h1>Web Store</h1>
+      <form method="post" action="checklogin.php">
+        <p><input type="text" name="username" value="" placeholder="Username"></p>
+        <p><input type="password" name="password" value="" placeholder="Password"></p>
+        <p class="submit">
+        <input type="submit" name="commit" value=" Login ">
+        <input type="submit" name="regis" value="Sign up">
+        </p>
+      </form>
+    </div>
+</section>
 </body>
 </html>
+
