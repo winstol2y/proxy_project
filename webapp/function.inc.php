@@ -29,4 +29,23 @@
 		echo $pSum;
 		echo " ";
 	}
+	define("HOST", "localhost");
+	define("DBUSER", "root");
+	define("DBPASS", "qwerty");
+
+	function connecttoDB($dbname)
+	{
+    	$connect = new PDO('mysql:host=localhost;dbname=' . $dbname, DBUSER, DBPASS);
+    	$connect->exec("SET CHARACTER SET utf8");
+    	return $connect;
+	}
+	function login($dbname,$user,$pass)
+	{
+		$connect = connecttoDB($dbname);
+		$query = 'SELECT `id`,`name`,`surname`,`username` , `passwd` FROM `member` WHERE `username` = :username AND `passwd` = :password';
+		$stmt = $connect->prepare($query);
+		$stmt->execute(array(':username' => $user,':password' => $pass ));
+		$r_Count = $stmt->rowCount();
+		return $r_Count>0;
+	}
 ?>

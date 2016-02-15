@@ -1,32 +1,45 @@
+<?php
+  $dbname = 'webapp';
+  include_once ('function.inc.php');
+  if (isset($_POST['submit_B']) && $_POST['submit_B'] == "submit") 
+  {
+    $user=isset($_POST['username']) ? $_POST['username'] : "";
+    $pass=isset($_POST['upassword']) ? $_POST['password']: "";
+    //echo login($dbname,$user,$pass);
+    if (login($dbname,$user,$pass))
+    {
+      echo '<script type="text/javascript">alert("Login Success");window.location.href = "http://www.google.com";</script>';
+    }
+    else
+    {
+      header("Location: zzz.php");
+    }
+  }
+?>
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>WebStore</title>
-  <link rel="stylesheet" href="css/loginstyle.css">
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebStore</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+  </head>
 
-<body>
-  <section class="container">
-   <!--<p><img src="logo.png" width="359" height="110"></p>-->
-    <p>&nbsp;</p>
-    <p></p>
-    <div class="login">
-      <h1>Web Store</h1>
-      <form method="post" action="checklogin.php">
-        <p><input type="text" name="username" value="" placeholder="Username"></p>
-        <p><input type="password" name="password" value="" placeholder="Password"></p>
-        <p class="submit">
-        <input type="submit" name="commit" value=" Login ">
-        <input type="submit" name="regis" value="Sign up">
-        </p>
+  <body>
+    <div class="container">
+
+      <form class="form-signin" action="index.php" method="POST">
+        <h2 class="form-signin-heading">Store Log in</h2>
+        <label for="username" class="sr-only">Username</label>
+        <input type="username" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" name="submit_B" value="submit" type="submit">Sign in</button>
       </form>
+
     </div>
-</section>
-</body>
+  </body>
 </html>
 
