@@ -40,12 +40,12 @@ refresh_pattern (Release|Packages(.gz)*)$      0       20%     2880
 #refresh_pattern (\.deb|\.udeb)$   129600 100% 129600
 refresh_pattern .               0       20%     4320
 
-acl bw_users src 10.0.0.2 10.0.0.5 10.0.0.11 10.0.0.4 10.0.0.222
-delay_pools 2
-delay_class 1 1
-delay_parameters 1 256000/256000
-delay_access 1 allow bw_users
+delay_pools <%= @data_sum_pool.num_rows -%> 
 
-delay_class 2 1
-delay_parameters 2 28000/28000 2480/4960
-delay_access 2 deny test_upload
+<% @data_delay_pool.each_hash do |row_delay_pool| -%>
+acl bw_users_<%= row_delay_pool['pool']%> src <%= row_delay_pool['range']%>
+delay_class <%= row_delay_pool['pool']%> <%= row_delay_pool['class']%> 
+delay_parameters <%= row_delay_pool['pool']%> <%= row_delay_pool['bandwidth']%> 
+delay_access <%= row_delay_pool['pool']%> allow bw_users_<%= row_delay_pool['pool']%> 
+
+<%- end -%>

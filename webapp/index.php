@@ -1,18 +1,17 @@
 <?php
-  $dbname = 'webapp';
   include_once ('function.inc.php');
   if (isset($_POST['submit_B']) && $_POST['submit_B'] == "submit") 
   {
     $user=isset($_POST['username']) ? $_POST['username'] : "";
-    $pass=isset($_POST['upassword']) ? $_POST['password']: "";
+    $pass=isset($_POST['password']) ? $_POST['password']: "";
     //echo login($dbname,$user,$pass);
-    if (login($dbname,$user,$pass))
+    if (login($user,$pass))
     {
-      echo '<script type="text/javascript">alert("Login Success");window.location.href = "http://www.google.com";</script>';
+      echo '<script type="text/javascript">alert("Login Success");window.location.href = "checkout_cart.php";</script>';
     }
     else
     {
-      header("Location: zzz.php");
+      echo '<script type="text/javascript">alert("Login Fail");window.history.back();</script>';
     }
   }
 ?>

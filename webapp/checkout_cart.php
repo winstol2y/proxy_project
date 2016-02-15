@@ -24,18 +24,33 @@
 </style>
 <body>
 
-	<?php include('header.php');
-  	      include("helper_func.inc.php");	
+	<?php 
+		include('header.php');
+  	    include("function.inc.php");	
 	?>
-	<form action="bill.php" method="post">
+	<form action="calculate_cast.php" method="post">
 		<table border="1" width="100%">
 		<tr>
-			<th>ID</th>
+			<th>Product ID</th>
 			<th>Name</th>
 			<th>Price</th>
 			<th>Amount</th>
 		</tr>
-		<?php get_product(); ?>		
+		<?php
+			$get_P = get_product();
+			$i = 1;
+			foreach ($get_P as $key) 
+			{
+				echo "<tr>";
+					echo "<td>".$key['product_code']."</td>";
+					echo "<td>".$key['product_name']."</td>";
+					echo "<td>".$key['price']."</td>";
+					echo '<td><input type="text" name="amount['.$i.']"></td>';
+				echo "</tr>";
+				$i++;
+			}
+			 
+		?>
 		</table><br><br><div class="wrapper"><input type="submit" name="set_value" value="Submit" ></div>
 		
 	</form>
