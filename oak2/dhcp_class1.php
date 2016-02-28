@@ -10,6 +10,14 @@
   $query_all_data = 'SELECT * FROM `class1`';
   $my_result = mysql_query($query_all_data);
   $i = 1;
+  $class = 1;
+  $query_range = 'SELECT * FROM `class_range` WHERE `class` = '.$class;
+  $result_range = mysql_query($query_range);
+  while($my_range=mysql_fetch_array($result_range))
+  {
+    $ip_s =  $my_range["ip_start"];
+    $ip_e =  $my_range["ip_end"];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +51,7 @@
             <div class="padding">
               <div class="full col-sm-12">
                 <div class="row"><!-- Content -->
-                  <form action="add_dhcp_class1.php" method="post" name="frm_data">
+                  <form action="dhcp_class1_add.php" method="post" name="frm_data">
                     
                     <div class="row">
                       <div class="col-sm-12">
@@ -62,15 +70,6 @@
 
                     <div class="row">
                       <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">IP Address :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="ip_add" type="text" placeholder="10.0.0.2 - 10.10.255.254"/>
-                      </div>
-                    </div>
-                    
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
                         <h4 align="right">Name :</h4> 
                       </div>
                       <div class="col-sm-3">
@@ -78,6 +77,15 @@
                       </div>
                     </div>
 
+                    <div class="row">
+                      <div class="col-sm-2 col-sm-offset-3">
+                        <h4 align="right">IP Address :</h4> 
+                      </div>
+                      <div class="col-sm-3">
+                        <input class="form-control" name="ip_add" type="text" placeholder= <?php echo $ip_s;echo "-";echo $ip_e; ?> />
+                      </div>
+                    </div>
+                    
                     <div class="row">
                       <div class="col-sm-2 col-sm-offset-3">
                         <h4 align="right">Expire :</h4> 
@@ -98,7 +106,7 @@
                   
                   <br>
                   
-                  <form action="upload_csv_class1.php" method="post" enctype="multipart/form-data">
+                  <form action="dhcp_class1_upload_csv.php" method="post" enctype="multipart/form-data">
                       
                       <div class="row">
                         
@@ -138,13 +146,14 @@
                     <div class="col-sm-11 col-sm-offset-1">
                       <div class="container-fluid">
                         <div class="table-responsive">
-                          <table class="table">
+                          <table class="table table-striped">
                             <tr>
                               <th>#</th>
                               <th>Mac Address</th>
-                              <th>IP Address</th>
                               <th>Name</th>
+                              <th>IP Address</th>
                               <th>Expire</th>
+                              <th>Delete</th>
                             </tr>
                             <?php
                               function table($data){
@@ -157,10 +166,10 @@
                                 echo '<tr>';
                                 table("$i");
                                 table($my_row1["hw"]);
-                                table($my_row1["ip"]);
                                 table($my_row1["name"]);
+                                table($my_row1["ip"]);
                                 table($my_row1["expire"]);
-                                table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/deleteDB/delete_dhcp1.php?ip='.trim($my_row1["ip"]).'&mac='.trim($my_row1["hw"]).'>Delete</button>');
+                                table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/dhcp_class1_delete.php?mac='.trim($my_row1["hw"]).'>Delete</button>');
                                 $i++;
                                 echo '</tr>';
                               }
@@ -182,32 +191,6 @@
               </div><!-- /col-12 -->
             </div><!-- /padding -->
           </div><!-- /Main Content -->
-        </div>
-      </div>
-    </div>
-
-
-    <!--post modal-->
-    <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              Update Status
-          </div>
-          <div class="modal-body">
-            <form class="form center-block">
-              <div class="form-group">
-                <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <div>
-              <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-              <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-            </div>  
-          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,51 @@
+<% @data_port_header.each_hash do |row_port_header| -%>
+acl <%= row_port_header['command']%> port <%= row_port_header['port']%>         	# <%= row_port_header['comment']%>
+<%- end -%>
+acl CONNECT method CONNECT
+
+# Only allow cachemgr access from localhost
+http_access allow localhost manager
+#http_access deny manager
+
+#http_access allow localnet
+http_access allow localhost
+
+# And finally deny all other access to this proxy
+#http_access deny all
+
+
+# Squid normally listens to port 3128
+http_port 12345
+
+<% @data_block_url.each_hash do |row_block_url| -%>
+acl time_<%= row_block_url['file_name'] %> time <%= row_block_url['block_date_time']%> 
+acl <%= row_block_url['file_name'] %> url_regex -i "/etc/squid3/<%=row_block_url['file_name']%>"
+http_access deny <%= row_block_url['file_name']%> time_<%= row_block_url['file_name']%>
+
+<%- end -%>
+
+acl test_upload url_regex -i ftp http https .mp3 .mp4 .iso .wav .wma .dat .cda .wm .mid .midi .dat google youtube mediafire .rar .zip
+
+http_access allow all
+# Leave coredumps in the first cache dir
+coredump_dir /var/spool/squid3
+
+# Add any of your own refresh_pattern entries above these.
+refresh_pattern ^ftp:           1440    20%     10080
+refresh_pattern ^gopher:        1440    0%      1440
+refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
+refresh_pattern (Release|Packages(.gz)*)$      0       20%     2880
+
+# example lin deb packages
+#refresh_pattern (\.deb|\.udeb)$   129600 100% 129600
+refresh_pattern .               0       20%     4320
+
+delay_pools <%= @data_sum_pool.num_rows -%> 
+
+<% @data_delay_pool.each_hash do |row_delay_pool| -%>
+acl bw_users_<%= row_delay_pool['pool']%> src <%= row_delay_pool['range']%>
+delay_class <%= row_delay_pool['pool']%> <%= row_delay_pool['class']%> 
+delay_parameters <%= row_delay_pool['pool']%> <%= row_delay_pool['bandwidth']%> 
+delay_access <%= row_delay_pool['pool']%> allow bw_users_<%= row_delay_pool['pool']%> 
+
+<%- end -%>

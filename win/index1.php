@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <meta content="list/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Config DHCP Class 1</title>
+<title>Block URL</title>
 </head>
 <body>
 <center>
@@ -55,9 +55,9 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <ul class="nav navbar-nav">
 <li><a href="#">Menu</a></li>
-<li><a href="http://localhost:1080/dhcp/index.php">DHCP and DNS</a></li>
-<li><a href="http://localhost:1080/dhcp/config_subnet.php">Subnet</a></li>
-<li><a href="http://localhost:1080/dhcp/config_zone_detail.php">Config Zone Detail</a></li>
+<li><a href="http://158.108.207.113:55580/win/index.php">Block URL</a></li>
+<li><a href="http://158.108.207.113:55580/win/config_port_squid.php">Open-Close Port</a></li>
+<li><a href="http://158.108.207.113:55580/win/config_zone_detail.php">Unknow</a></li>
 </ul>
     
 <ul class="nav navbar-nav navbar-right">
@@ -99,50 +99,22 @@
  
 <table>
 <tr>
-<form action="add_dhcp_class1.php" method="post" name="frm_data">
+<form action="add_url.php" method="post" name="frm_data">
         <table width="700">
         <th>
-        <caption><font size="5"><h3>config dhcp class 1</h3></font></caption>
+        <caption><font size="5"><h3>Block URL</h3></font></caption>
         </th>
        
+	<tr>
+	<td align="right"><font size="3"><div>Name :</div></font></td>
+	<td><input class="form-control" name="name_add" type="text" /></td>
+	</tr>
+
         <tr>
-        <td align="right"><font size="3"><div>Mac Address :</div></font></td>
-        <td><input class="form-control" name="macAddress_add" type="text" /></td>
+        <td align="right"><font size="3"><div>URL :</div></font></td>
+        <td><input class="form-control" name="url_add" type="text" /></td>
         </tr>
- 
-        <tr>
-        <td align="right"><font size="3"><div>Name :</div></font></td>
-	<div class="container">
-		<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker3'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker3').datetimepicker({
-                    format: 'LT'
-                });
-            });
-        </script>
-    </div>
-</div>
-        </div>
-        </tr>
-       
-        <tr>
-        <td align="right"><font size="3"><div>IP Address :</div></font></td>
-        <td><input class="form-control" name="ip_add" type="text" /></td>
-        <td align="left">Example : 192.168.111.111 </td>
-        </tr>
-       
+
         <tr>
         <td align="right"><font size="3"><div>Expire :</div></font></td>
         <td><input class="form-control" name="time_add" type="text" /></td>
@@ -156,17 +128,6 @@
 </table>
 </form>
  
-<table width="800">
-<form action="upload_csv_class1.php" method="post" enctype="multipart/form-data">
-<br><br>
-        <tr>
-        <td align="right" style="width:100px">Import CSV file :</td>
-        <td style="width:10px"><input class="btn btn-default" type="file" name="fileCSV" id="fileCSV" size="100"></td>
-        <td style="width:10px"><input class="btn btn-default" type="submit" value="Import" name="submit" size="100"></td>
-        <td style="width:300px"><div>  Format : MacAddress (xx:xx:xx:xx:xx:xx) , Zone , Hostname , ip , expire (yyyy-mm-dd)</td>
-        </tr>
-</form>
-</table>
 <br><br>
 <table width="800">
         <h3>Display</h3>
@@ -177,69 +138,49 @@
 <div class="container">
         <table class="table table-striped">
         <thead>
- 
+
 <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "qwerty";
-$dbname = "dhcp";
-
-$con = mysql_connect($servername,$username,$password) or die (mysql_error("Error connect"));
-        mysql_select_db($dbname) or die (mysql_error("Error database"));
  
-$strSort = $_GET["sort"];
-if($strSort == ""){
-       $strSort = "zone";
-}
+include("connect.php");
+ 
 function table($data){
-       echo '<th><div>';
-        echo "$data";
-        echo '</th></div>';
+	echo '<th><div>';
+	echo "$data";
+	echo '</th></div>';
 }
- 
+
 echo '<tr>';
         table("  #  ");
-        table('<a href=index.php?sort=hw>Mac Address</a>');
-        table('<a href=index.php?sort=ip>IP Address</a>');
         table('<a href=index.php?sort=name>Name</a>');
-        table('<a href=index.php?sort=zone>Zone</a>');
+        table('<a href=index.php?sort=hw>URL</a>');
         table('<a href=index.php?sort=expire>Expire</a>');
         table("Function");
 echo '</tr>';
  
-$query_all_data = 'SELECT * FROM `class1`';
+$query_all_data = 'SELECT * FROM `block_url`';
 $my_result = mysql_query($query_all_data);
 $i = 1;
- 
+
 while($my_row1=mysql_fetch_array($my_result)){
-        echo '<tr>';
         table("$i");
-        table($my_row1["hw"]);
-        table($my_row1["ip"]);
-        table($my_row1["name"]);
+	table($my_row1["name"]);
+        table($my_row1["url"]);
         table($my_row1["expire"]);
-        table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=delete_dhcp.php?ip='.trim($my_row1["ip"]).'&mac='.trim($my_row1["hw"]).'>Delete</button>');
+        table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=delete.php?url='.trim($my_row1["url"]).'>Delete</button>');
         $i++;
         echo '</tr>';
 }
- 
+
 mysql_close($con);
 ?>
 </thead>
 </table>
 </caption>
 </center>
- 
+  
   <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/win.js"></script>
-   
-  <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/moment.js"></script>
-<script type="text/javascript" src="js/transition.js"></script>
-<script type="text/javascript" src="js/collapse.js"></script>
-<script type="text/javascript" src="bootstrap.min.js"></script>
-<script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>
+ 
 </body>
 </html>

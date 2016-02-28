@@ -102,7 +102,7 @@
 <form action="add_class_delaypool.php" method="post" name="frm_data">
         <table width="700">
         <th>
-        <caption><font size="5"><h3>config dhcp class 1</h3></font></caption>
+        <caption><font size="5"><h3>Config class of squid</h3></font></caption>
         </th>
        
         <tr>

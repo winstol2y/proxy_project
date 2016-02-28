@@ -242,43 +242,43 @@
                   
                   <div class="row">
                     <div class="col-sm-11 col-sm-offset-1">
-                      <table class="table table-striped">
-                        <thead>
+                      <div class="container-fluid">
+                        <div class="table-responsive">
+                          <table class="table table-striped">
+                            <tr>
+                              <th>#</th>
+                              <th>Name</th>
+                              <th>URL</th>
+                              <th>Block Time</th>
+                              <th>Block Day</th>
+                              <th>Delete</th>
+                            </tr>
 
-                          <?php
-                           
-                          function table($data){
-                            echo '<th><div>';
-                            echo "$data";
-                            echo '</th></div>';
-                          }
-                          
-                          echo '<tr>';
-                                  table("  #  ");
-                                  table('<a href=index.php?sort=name>Name</a>');
-                                  table('<a href=index.php?sort=hw>URL</a>');
-                                  table('<a href=index.php?sort=time>Block Time</a>');
-                                  table('<a href=index.php?sort=time>Block Day</a>');
-                                  table("Function");
-                          echo '</tr>';
-                          $i = 1;
-                          while($my_row1=mysql_fetch_array($my_result))
-                          {
-                            echo '<tr>';
-                            table("$i");
-                            table($my_row1["name"]);
-                            table($my_row1["url"]);
-                            table($my_row1["time"]);
-                            table($my_row1["day"]);
-                            table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/delete_url.php?url='.trim($my_row1["id"]).'>Delete</button>');
-                            $i++;
-                            echo '</tr>';
-                          }
-                          
-                          mysql_close($con);
-                          ?>
-                        </thead>
-                      </table>
+                            <?php
+                              function table($data){
+                                echo '<th><div>';
+                                echo "$data";
+                                echo '</th></div>';
+                              }
+                            
+                              $i = 1;
+                              while($my_row1=mysql_fetch_array($my_result))
+                              {
+                                echo '<tr>';
+                                  table("$i");
+                                  table($my_row1["name"]);
+                                  table($my_row1["url"]);
+                                  table($my_row1["time"]);
+                                  table($my_row1["day"]);
+                                  table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/delete_url.php?url='.trim($my_row1["id"]).'>Delete</button>');
+                                  $i++;
+                                echo '</tr>';
+                              }
+                            mysql_close($con);
+                            ?>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div><!--/Content-->
