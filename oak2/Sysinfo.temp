@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Linfo - project</title>
+	<link href="./layout/favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<link href="./layout/theme_default.css" rel="stylesheet">
+	<link href="./layout/icons.css" rel="stylesheet">
+	<script src="./layout/scripts.min.js"></script>
+	<meta name="generator" content="Linfo (2015-09-15)">
+	<meta name="author" content="Joseph Gillotti &amp; friends">
+	<!--[if lt IE 8]>
+	<link href="./layout/old_ie.css" type="text/css" rel="stylesheet">
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="./layout/mobile.css" media="screen and (max-width: 640px)">
+</head>
+<body id="info">
+<div id="header">
+	<h1>project</h1>
+	<div class="subtitle">System Health and Information</div>
+</div>
+<div class="col2">
+	<div class="col">
+		<div class="infoTable">
+			<h2>Core</h2>
+			<table>
+				<tr>
+					<th>OS</th>
+					<td><span class="icon icon_os_linux"></span>Linux</td>
+				</tr>
+				
+				<tr>
+					<th>Distribution</th>
+					<td><span class="icon icon_distro_ubuntu"></span>Ubuntu - 15.04 (Vivid)</td>
+				</tr>
+				
+				<tr>
+					<th>Virtualization</th>
+					<td><span class="icon icon_vm_xen"></span>Xen Host</td>
+				</tr>
+				
+				<tr>
+					<th>Kernel</th>
+					<td>3.19.0-42-generic</td>
+				</tr>
+				
+				<tr>
+					<th>Model</th>
+					<td>System Product Name (ASUSTeK Computer INC. P5KPL-AM/PS)</td>
+				</tr>
+				
+				<tr>
+					<th>Accessed IP</th>
+					<td>158.108.207.113</td>
+				</tr>
+				
+				<tr>
+					<th>Uptime</th>
+					<td>3 days, 9 hours, 13 minutes, 3 seconds; booted 02/28/16 10:03 AM (UTC)</td>
+				</tr>
+				
+				<tr>
+					<th>Hostname</th>
+					<td>project</td>
+				</tr>
+				
+				<tr>
+					<th>CPUs (2)</th>
+					<td>GenuineIntel - Intel(R) Celeron(R) CPU        E3300  @ 2.50GHz (2.521 GHz)<br>GenuineIntel - Intel(R) Celeron(R) CPU        E3300  @ 2.50GHz (2.521 GHz)<br></td>
+				</tr>
+				
+				<tr>
+					<th>Load</th>
+					<td>0.00 0.01 0.05</td>
+				</tr>
+				
+				<tr>
+					<th>Architecture</th>
+					<td>x86_64</td>
+				</tr>
+				
+				<tr>
+					<th>Processes</th>
+					<td>running: 3; zombie: 0; sleeping: 165; stopped: 0; total: 168</td>
+				</tr>
+				
+				<tr>
+					<th>Threads</th>
+					<td>215</td>
+				</tr>
+				
+				<tr>
+					<th>Active Users</th>
+					<td>2</td>
+				</tr>
+				
+			</table>
+		</div>
+		<div class="infoTable">
+			<h2>Memory</h2>
+			<table>
+				<colgroup>
+					<col style="width: 12%;" />
+					<col style="width: 23%;" />
+					<col style="width: 23%;" />
+					<col style="width: 23%;" />
+					<col style="width: 23%;" />
+				</colgroup>
+				<tr>
+					<th>Type</th>
+					<th>Size</th>
+					<th>Used</th>
+					<th>Free</th>
+					<th>Percent Used</th>
+				</tr>
+				<tr>
+					<td>Physical</td>
+					<td>2.69 GiB</td>
+					<td>645.37 MiB</td>
+					<td>2.06 GiB</td>
+					<td>
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 23%; "></div>
+				<div class="new_bar_text">23%</div>
+			</div>
+		</td>
+				</tr>
+					<tr>
+						<td rowspan="2">Swap</td>
+						<td>1.99 GiB</td>
+						<td>0 B</td>
+						<td>1.99 GiB</td>
+						<td>
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">0%</div>
+			</div>
+		</td>
+					</tr>
+						<tr>
+							<td colspan="4">
+								<table class="mini center">
+									<colgroup>
+										<col style="width: 25%;" />
+										<col style="width: 25%;" />
+										<col style="width: 25%;" />
+										<col style="width: 25%;" />
+									</colgroup>
+									<tr>
+										<th>Device</th>
+										<th>Type</th>
+										<th>Size</th>
+										<th>Used</th>
+									</tr>
+										<tr>
+											<td>/dev/dm-1</td>
+											<td>Partition</td>
+											<td>1.99 GiB</td>
+											<td>0 B</td>
+										</tr>
+										
+								</table>
+							</td>
+						</tr>
+			</table>
+		</div>
+		<div class="infoTable network_devices">
+			<h2>Network Devices</h2>
+			<table>
+				<tr>
+					<th>Device Name</th>
+					<th>Type</th>
+					<th>Port Speed</th>
+					<th>Amount Sent</th>
+					<th>Amount Received</th>
+					<th>State</th>
+				</tr>
+				<tr>
+					<td>eth0</td>
+					<td>Ethernet (PCI) (r8169)</td>
+					<td>10Mb/s</td>
+					<td>12.96 MiB</td>
+					<td>14.25 MiB</td>
+					<td class="net_up">Up</td>
+				</tr>
+				<tr>
+					<td>eth1</td>
+					<td>Ethernet (PCI) (r8169)</td>
+					<td>1000Mb/s</td>
+					<td>1.99 GiB</td>
+					<td>392.27 MiB</td>
+					<td class="net_up">Up</td>
+				</tr>
+				<tr>
+					<td>eth2</td>
+					<td>Ethernet (PCI) (8139too)</td>
+					<td></td>
+					<td>0 B</td>
+					<td>0 B</td>
+					<td class="net_down">Down</td>
+				</tr>
+				<tr>
+					<td>lo</td>
+					<td>Loopback</td>
+					<td></td>
+					<td>20.54 MiB</td>
+					<td>20.54 MiB</td>
+					<td class="net_up">Up</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="col">
+		<div class="infoTable">
+			<h2>Hardware</h2>
+			<table>
+				<tr>
+					<th>Type</th>
+					<th>Vendor</th>
+					<th>Device</th>
+				</tr>
+				
+				<tr>
+					<td class="center">PCI</td>
+					<td>Realtek Semiconductor Co., Ltd.</td>
+					<td>RTL-8100/8101L/8139 PCI Fast Ethernet Adapter</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Realtek Semiconductor Co., Ltd.</td>
+					<td>RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Realtek Semiconductor Co., Ltd.</td>
+					<td>RTL8169 PCI Gigabit Ethernet Controller</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>82801 PCI Bridge</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>82801GB/GR (ICH7 Family) LPC Interface Bridge</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family SATA Controller [IDE mode]</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family USB UHCI Controller #1</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family USB UHCI Controller #2</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family USB UHCI Controller #3</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family USB UHCI Controller #4</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family USB2 EHCI Controller</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family PCI Express Port 1</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family PCI Express Port 2</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family High Definition Audio Controller</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>NM10/ICH7 Family SMBus Controller</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>82801G (ICH7 Family) IDE Controller</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>82G33/G31/P35/P31 Express DRAM Controller</td>
+				</tr>
+				<tr>
+					<td class="center">PCI</td>
+					<td>Intel Corporation</td>
+					<td>82G33/G31 Express Integrated Graphics Controller</td>
+				</tr>
+				<tr>
+					<td class="center">USB</td>
+					<td>ATEN International Co., Ltd</td>
+					<td>CS682 2-Port USB 2.0 DVI KVM Switch</td>
+				</tr>
+				<tr>
+					<td class="center">USB</td>
+					<td>Linux Foundation</td>
+					<td>1.1 root hub</td>
+				</tr>
+				<tr>
+					<td class="center">USB</td>
+					<td>Linux Foundation</td>
+					<td>2.0 root hub</td>
+				</tr>
+			</table>
+		</div>
+		<div class="infoTable">
+			<h2>Drives</h2>
+			<table>
+				<tr>
+					<th>Path</th>
+					<th>Vendor</th>
+					<th>Name</th>
+					<th>Reads</th>
+					<th>Writes</th>
+					<th>Size</th>
+				</tr>
+				<tr>
+					<td>/dev/sda</td>
+					<td>ATA</td>
+					<td>Hitachi HDS72161</td>
+					<td>24,676</td>
+					<td>341,882</td>
+					<td>149.05 GiB</td>
+				</tr>
+				<tr>
+					<td colspan="6">
+						&#9492; /dev/sda1 - 243 MiB<br />
+						&#9492; /dev/sda2 - 1 KiB<br />
+						&#9492; /dev/sda5 - 148.81 GiB<br />
+					</td>
+				</tr>
+				
+				<tr>
+					<td>/dev/sdb</td>
+					<td>ATA</td>
+					<td>Hitachi HDS72161</td>
+					<td>247</td>
+					<td>0</td>
+					<td>149.05 GiB</td>
+				</tr>
+				<tr>
+					<td colspan="6">
+						&#9492; /dev/sdb1 - 149.05 GiB<br />
+					</td>
+				</tr>
+				
+				<tr>
+					<td>/dev/sr0</td>
+					<td>ATAPI</td>
+					<td>iHAS324   B</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1024 MiB</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="infoTable filesystem_mounts">
+	<h2>Filesystem Mounts</h2>
+	<table>
+		<tr><th>Device</th><th>Mount Point</th>
+			<th>Filesystem</th>
+			<th>Size</th>
+			<th>Used</th>
+			<th>Free</th>
+			<th style="width: 12%;">Percent Used</th>
+		</tr>
+		<tr><td>sysfs</td><td>/sys</td>
+					<td>sysfs</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>proc</td><td>/proc</td>
+					<td>proc</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>udev</td><td>/dev</td>
+					<td>devtmpfs</td>
+					<td>1.34 GiB</td>
+					<td>0 B</td>
+					<td>1.34 GiB <span class="perc">(100%)</span></td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>/dev/dm-0</td><td>/</td>
+					<td>ext4</td>
+					<td>144.39 GiB</td>
+					<td>10.22 GiB <span class="perc">(7%)</span></td>
+					<td>134.17 GiB <span class="perc">(93%)</span></td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 7%; "></div>
+				<div class="new_bar_text">7%</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/systemd</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>pstore</td><td>/sys/fs/pstore</td>
+					<td>pstore</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/memory</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/cpu,cpuacct</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/freezer</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/net_cls,net_prio</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/blkio</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/cpuset</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/perf_event</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/hugetlb</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/devices</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>systemd-1</td><td>/proc/sys/fs/binfmt_misc</td>
+					<td>autofs</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>debugfs</td><td>/sys/kernel/debug</td>
+					<td>debugfs</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>hugetlbfs</td><td>/dev/hugepages</td>
+					<td>hugetlbfs</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>mqueue</td><td>/dev/mqueue</td>
+					<td>mqueue</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>/dev/sda1</td><td>/boot</td>
+					<td>ext2</td>
+					<td>235.32 MiB</td>
+					<td>88.55 MiB <span class="perc">(38%)</span></td>
+					<td>146.78 MiB <span class="perc">(62%)</span></td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 38%; "></div>
+				<div class="new_bar_text">38%</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>xenfs</td><td>/proc/xen</td>
+					<td>xenfs</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr>
+		<tr class="alt">
+			<td colspan="3">Totals: </td>
+			<td>145.95 GiB</td>
+			<td>10.3 GiB</td>
+			<td>135.65 GiB</td>
+			<td>
+				
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 7%; "></div>
+				<div class="new_bar_text">7%</div>
+			</div>
+		
+			</td>
+		</tr>
+	</table>
+</div>
+<div id="foot">
+	Generated by <a href="https://github.com/jrgp/linfo"><em>Linfo</em></a> (2015-09-15) in 0.12 seconds.<br>
+	<em>Linfo</em> &copy; 2010 &ndash; 2016
+	Joseph Gillotti &amp; friends. Source code licensed under GPL.
+</div>
+<div id="foot_time">
+	<br />
+	Generated on 03/02/16 07:16 PM (UTC)
+</div>
+<script>Linfo.init()</script>
+</body>
+</html>

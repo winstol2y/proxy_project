@@ -13,8 +13,8 @@ $id=(int)$_GET["url"];
 $query_delete = "DELETE FROM `block`.`block_url` WHERE `block_url`.`id` = '$id'";
 mysql_query($query_delete);
 
-shell_exec("/var/www/html/oak2/manage_squid.rb");
-shell_exec('/var/www/html/oak2/restart_service_squid.sh');
+shell_exec("/var/www/html/win/manage_squid.rb");
+shell_exec('/var/www/html/win/restart_service_squid.sh');
 header('Location:/oak2/url_block.php');
 
 mysql_close($con);

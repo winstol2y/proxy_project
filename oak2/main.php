@@ -1,9 +1,99 @@
 <?php
-  session_start();
-  if($_SESSION["login_ok"] != 1)
+  function getBetween($content,$start,$end)
   {
-    header( "location:index.php");
+      $r = explode($start, $content);
+      if (isset($r[1]))
+      {
+          $r = explode($end, $r[1]);
+          return $r[0];
+      }
+      return '';
   }
+  $content = file_get_contents('http://158.108.207.113:55580/linfo/');
+  $getOS = getBetween($content,"OS","Distribution");
+  $getDIS = getBetween($content,"Distribution","Virtualization");
+  $getUPT = getBetween($content,"Uptime",";");
+  $content2File=fopen("Sysinfo.temp", "w");
+  fwrite($content2File,$content);
+  fclose($content2File);
+  
+  $getRAM = explode("/",trim(preg_replace('/([a-z]|A|L|[C-F]|[H-J]|L|[N-O]|[Q-S]|[U-Z]|<|>|=|"|:|;|Ph|To|_|\t|\n)/', '', shell_exec("grep -a -7 '<td>Physical</td>' /var/www/html/oak2/Sysinfo.temp"))));
+  $cutRAMPer = intval(substr($getRAM[11], 0, -1));
+  if ($cutRAMPer > 66)
+  {
+    $barRAMX = 33;
+    $barRAMY = 33;
+    $barRAMZ = $cutRAMPer - 66;
+  }
+  elseif ($cutRAMPer > 33 && $cutRAMPer <= 66)
+  {
+    $barRAMX = 33;
+    $barRAMY = $cutRAMPer - 33;
+    $barRAMZ = 0;
+  }
+  elseif ($cutRAMPer <= 33)
+  {
+    $barRAMX = $cutRAMPer;
+    $barRAMY = 0;
+    $barRAMZ = 0;
+  }
+  $getHDD = explode("/",trim(preg_replace('/([a-z]|A|L|[C-F]|[H-J]|L|[N-O]|[Q-S]|[U-Z]|<|>|=|"|:|;|Ph|To|_|\t|\n)/', '', shell_exec("grep -a -8 '>Totals: </td>' /var/www/html/oak2/Sysinfo.temp"))));
+  $cutHDDPer = intval(substr($getHDD[11], 0, -1));
+  if ($cutHDDPer > 66)
+  {
+    $barHDDX = 33;
+    $barHDDY = 33;
+    $barHDDZ = $cutHDDPer - 66;
+  }
+  elseif ($cutHDDPer > 33 && $cutHDDPer <= 66)
+  {
+    $barHDDX = 33;
+    $barHDDY = $cutHDDPer - 33;
+    $barHDDZ = 0;
+  }
+  elseif ($cutHDDPer <= 33)
+  {
+    $barHDDX = $cutHDDPer;
+    $barHDDY = 0;
+    $barHDDZ = 0;
+  }
+  $stat1 = file('/proc/stat'); 
+  sleep(1); 
+  $stat2 = file('/proc/stat'); 
+  $info1 = explode(" ", preg_replace("!cpu +!", "", $stat1[0])); 
+  $info2 = explode(" ", preg_replace("!cpu +!", "", $stat2[0])); 
+  $dif = array(); 
+  $dif['user'] = $info2[0] - $info1[0]; 
+  $dif['nice'] = $info2[1] - $info1[1]; 
+  $dif['sys'] = $info2[2] - $info1[2]; 
+  $dif['idle'] = $info2[3] - $info1[3]; 
+  $total = array_sum($dif); 
+  $cpu = array(); 
+  foreach($dif as $x=>$y) 
+  {
+    $cpu[$x] = round($y / $total * 100, 1);
+  }
+
+  $getCPUUsed = floor($cpu['user']);
+  if ($getCPUUsed > 66)
+  {
+    $barCPUX = 33;
+    $barCPUY = 33;
+    $barCPUZ = $getCPUUsed - 66;
+  }
+  elseif ($getCPUUsed > 33 && $getCPUUsed <= 66)
+  {
+    $barCPUX = 33;
+    $barCPUY = $getCPUUsed - 33;
+    $barCPUZ = 0;
+  }
+  elseif ($getCPUUsed <= 33)
+  {
+    $barCPUX = $getCPUUsed;
+    $barCPUY = 0;
+    $barCPUZ = 0;
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,45 +123,62 @@
             
             <div class="padding">
               <div class="full col-sm-9">
-                  
+                
                 <!-- Content -->                      
                 <div class="row">
+                  <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p class="lead">Server Status</p>
+                    <p>OS : <?php echo $getOS;?></p>
+                    <p>Distribution : <?php echo $getDIS;?></p>
+                    <p>Uptime : <?php echo $getUPT;?></p>
+                    
+                    <p>CPU Used : <?php if($getCPUUsed == 0){echo "~".$getCPUUsed."%";}else {echo $getCPUUsed."%";} ?></p>
+                    <div class="progress  progress-striped active">
+                      <div class="progress-bar progress-bar-success progress-bar-striped" style="width: <?php echo $barHDDX; ?>">
+                        <span class="sr-only"></span>
+                      </div>
+                      <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: <?php echo $barHDDY; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                      <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: <?php echo $barHDDZ; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                    </div>
+                  
+                    <p>Ram Used : <?php echo $getRAM[11]." |";?> Size :  <?php echo $getRAM[7]." |";?> Used :  <?php echo $getRAM[8]." |";?> Free :  <?php echo $getRAM[9];?> </p>
+                    <div class="progress  progress-striped active">
+                      <div class="progress-bar progress-bar-success progress-bar-striped" style="width: <?php echo $barRAMX; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                      <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: <?php echo $barRAMY; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                      <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: <?php echo $barRAMZ; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                    </div>
+
+                    <p>Storage Used : <?php echo $getHDD[11]." |";?> Size :  <?php echo $getHDD[7]." |";?> Used :  <?php echo $getHDD[8]." |";?> Free :  <?php echo $getHDD[9];?></p>
+                    <div class="progress  progress-striped active">
+                      <div class="progress-bar progress-bar-success progress-bar-striped" style="width: <?php echo $barHDDX; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                      <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: <?php echo $barHDDY; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                      <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: <?php echo $barHDDZ; ?>%">
+                        <span class="sr-only"></span>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
                   <!-- Content Left --> 
                   <div class="col-sm-5">
 
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        <p class="lead">Server Status</p>
-
-                        <p>CPU Used:</p>
-                        <div class="progress  progress-striped active">
-                          <div class="progress-bar" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                          </div>
-                        </div>
-                      
-                        <p>Ram Used:</p>
-                        <div class="progress  progress-striped active">
-                          <div class="progress-bar" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                          </div>
-                        </div>
-
-                        <p>Storage Used:</p>
-                        <div class="progress  progress-striped active">
-                          <div class="progress-bar" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                          </div>
-                        </div>
-
-
-                        <!--
-                        <p>
-                          <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
-                        </p>
-                        -->
-                      </div>
-                    </div>
+                    
                     <!--
                     <div class="panel panel-default">
                       <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootstrap Examples</h4></div>
@@ -131,15 +238,12 @@
                       <div class="panel-heading"><a href="./url_block.php" class="pull-right">View all</a> <h4>URL Block</h4></div>
                       <div class="panel-body">
                         <h5>Quick URL Block</h5>
-                        <div class="input-group text-center">
-                        <input type="text" class="form-control input-lg" placeholder="Enter URL">
-                          <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
-                        </div>
-                        <hr>
-                        <h5>The last 3 URL Block</h5>
-                        <h6>URL 3</h6>
-                        <h6>URL 2</h6>
-                        <h6>URL 1</h6>
+                        <form action="add_url_main.php" method="post" name="frm_data">
+                          <div class="input-group text-center">
+                            <input type="text" class="form-control input-lg" name="qURL" placeholder="Enter URL">
+                            <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="submit">OK</button></span>
+                          </div>
+                        </form>
                       </div>
                     </div>
                         

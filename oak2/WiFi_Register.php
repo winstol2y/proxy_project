@@ -66,7 +66,7 @@
       {
         margin: 20px auto;
         width: 610px; 
-        height: 400px; 
+        height: 300px; 
         -webkit-border-radius: 8px/7px; 
         -moz-border-radius: 8px/7px; 
         border-radius: 8px/7px; 
@@ -242,20 +242,12 @@
 
       <form action="WiFi_Register_add.php" method="post" name="frm_data">
         <hr>
-          <div class="accounttype">
-            <input type="radio" value="guest" id="radioOne" name="account" checked/>
-            <label for="radioOne" class="radio"chec>ผู้ใช้งานทั่วไป</label>
-
-            <input type="radio" value="staff" id="radioTwo" name="account" />
-            <label for="radioTwo" class="radio">บุคลากร</label>
-          </div>
-        <hr>
         <div>
           <label id="icon" for="name"><i class="icon-user "></i></label>
-          <input type="text" name="surName" id="name" placeholder="ชื่อ" required/>
+          <input type="text" name="name" id="name" placeholder="ชื่อ" required/>
             
           <label id="icon" for="name"><i class="icon-user "></i></label>
-          <input type="text" name="lastName" id="lastName" placeholder="นามสกุล" required/>
+          <input type="text" name="surName" id="lastName" placeholder="นามสกุล" required/>
             
           <label id="icon" for="name"><i class="icon-credit-card"></i></label>
           <input type="text" name="people_id" id="people_id" placeholder="เลขประจำตัวประชาชน" required/>

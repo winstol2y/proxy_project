@@ -97,8 +97,8 @@
 			$blockdatetoDB = $days." ".$timetoDB;
 			$query_add = "INSERT INTO `block`.`block_url` (`name` , `url` , `time`,`day`,`file_name`,`block_date_time`) VALUES ('".$_POST["name_add"]."','".$_POST["url_add"]."','".$timetoDB."','".$days."','".$filenametoDB."','".$blockdatetoDB."')";	
 			mysql_query($query_add) or die(mysql_error());
-			shell_exec("/var/www/html/oak2/manage_squid.rb");
-			shell_exec('/var/www/html/oak2/restart_service_squid.sh');
+			shell_exec("/var/www/html/win/manage_squid.rb");
+			shell_exec('/var/www/html/win/restart_service_squid.sh');
 			header('Location: url_block.php');
 		}
 	}

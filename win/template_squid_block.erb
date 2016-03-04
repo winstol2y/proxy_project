@@ -3,32 +3,41 @@ acl <%= row_port_header['command']%> port <%= row_port_header['port']%>         
 <%- end -%>
 acl CONNECT method CONNECT
 
+#debug
+debug_option 28,9
+
+# Deny requests to certain unsafe ports
+http_access deny !Safe_ports
+
+# Deny CONNECT to other than secure SSL ports
+http_access deny CONNECT !SSL_ports
+
 # Only allow cachemgr access from localhost
 http_access allow localhost manager
-#http_access deny manager
+http_access deny manager
 
 #http_access allow localnet
 http_access allow localhost
 
 # And finally deny all other access to this proxy
-#http_access deny all
-
+http_access allow all
 
 # Squid normally listens to port 3128
+http_port 12344
 http_port 12345
 
 <% @data_block_url.each_hash do |row_block_url| -%>
 acl time_<%= row_block_url['file_name'] %> time <%= row_block_url['block_date_time']%> 
-acl <%= row_block_url['file_name'] %> url_regex -i "/etc/squid3/<%=row_block_url['file_name']%>"
+acl <%= row_block_url['file_name'] %> url_regex -i "/etc/squid3/blockD/<%=row_block_url['file_name']%>"
 http_access deny <%= row_block_url['file_name']%> time_<%= row_block_url['file_name']%>
 
 <%- end -%>
 
-acl test_upload url_regex -i ftp http https .mp3 .mp4 .iso .wav .wma .dat .cda .wm .mid .midi .dat google youtube mediafire .rar .zip
-
-http_access allow all
+acl mylocalnet src all
+http_access allow mylocalnet
 # Leave coredumps in the first cache dir
 coredump_dir /var/spool/squid3
+
 
 # Add any of your own refresh_pattern entries above these.
 refresh_pattern ^ftp:           1440    20%     10080

@@ -29,6 +29,7 @@ end
 
 
 	`rm /etc/squid3/squid.conf` # delete file squid.conf before create new file
+	`rm /etc/squid3/blockD/*`
 
 	con = Mysql.new 'localhost', 'root', 'qwerty', 'block' # connect sql
 	con_delay_pool = Mysql.new 'localhost', 'root', 'qwerty', 'delay_pool'
@@ -54,7 +55,7 @@ end
 	file_time = con.query("SELECT `file_name`,`block_date_time` FROM block_url UNION SELECT `file_name`,`block_date_time` FROM block_url")
 	file_time.each_hash do |rows|
 		url = rows['file_name']
-		file_time_url = "/etc/squid3/#{rows['file_name']}"
+		file_time_url = "/etc/squid3/blockD/#{rows['file_name']}"
 		data_url = con.query("SELECT * FROM block_url WHERE `file_name` = '#{url}'")
 		file_time = File.open(file_time_url, 'w')
 		insert_file_time = Time_file_header.new(data_url)
