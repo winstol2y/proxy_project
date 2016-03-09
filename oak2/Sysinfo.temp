@@ -57,7 +57,7 @@
 				
 				<tr>
 					<th>Uptime</th>
-					<td>3 days, 9 hours, 13 minutes, 3 seconds; booted 02/28/16 10:03 AM (UTC)</td>
+					<td>3 hours, 25 minutes, 41 seconds; booted 03/07/16 12:10 PM (UTC)</td>
 				</tr>
 				
 				<tr>
@@ -72,7 +72,7 @@
 				
 				<tr>
 					<th>Load</th>
-					<td>0.00 0.01 0.05</td>
+					<td>0.07 0.03 0.05</td>
 				</tr>
 				
 				<tr>
@@ -82,12 +82,12 @@
 				
 				<tr>
 					<th>Processes</th>
-					<td>running: 3; zombie: 0; sleeping: 165; stopped: 0; total: 168</td>
+					<td>running: 3; zombie: 0; sleeping: 157; stopped: 0; total: 160</td>
 				</tr>
 				
 				<tr>
 					<th>Threads</th>
-					<td>215</td>
+					<td>205</td>
 				</tr>
 				
 				<tr>
@@ -117,12 +117,12 @@
 				<tr>
 					<td>Physical</td>
 					<td>2.69 GiB</td>
-					<td>645.37 MiB</td>
-					<td>2.06 GiB</td>
+					<td>585.82 MiB</td>
+					<td>2.12 GiB</td>
 					<td>
 			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 23%; "></div>
-				<div class="new_bar_text">23%</div>
+				<div class="new_bar_bg" style="width: 21%; "></div>
+				<div class="new_bar_text">21%</div>
 			</div>
 		</td>
 				</tr>
@@ -180,16 +180,16 @@
 					<td>eth0</td>
 					<td>Ethernet (PCI) (r8169)</td>
 					<td>10Mb/s</td>
-					<td>12.96 MiB</td>
-					<td>14.25 MiB</td>
+					<td>81.87 MiB</td>
+					<td>26.54 MiB</td>
 					<td class="net_up">Up</td>
 				</tr>
 				<tr>
 					<td>eth1</td>
 					<td>Ethernet (PCI) (r8169)</td>
-					<td>1000Mb/s</td>
-					<td>1.99 GiB</td>
-					<td>392.27 MiB</td>
+					<td>100Mb/s</td>
+					<td>26.63 MiB</td>
+					<td>93.74 MiB</td>
 					<td class="net_up">Up</td>
 				</tr>
 				<tr>
@@ -204,8 +204,8 @@
 					<td>lo</td>
 					<td>Loopback</td>
 					<td></td>
-					<td>20.54 MiB</td>
-					<td>20.54 MiB</td>
+					<td>1.85 MiB</td>
+					<td>1.85 MiB</td>
 					<td class="net_up">Up</td>
 				</tr>
 			</table>
@@ -343,8 +343,8 @@
 					<td>/dev/sda</td>
 					<td>ATA</td>
 					<td>Hitachi HDS72161</td>
-					<td>24,676</td>
-					<td>341,882</td>
+					<td>9,196</td>
+					<td>19,235</td>
 					<td>149.05 GiB</td>
 				</tr>
 				<tr>
@@ -433,8 +433,8 @@
 				</tr><tr><td>/dev/dm-0</td><td>/</td>
 					<td>ext4</td>
 					<td>144.39 GiB</td>
-					<td>10.22 GiB <span class="perc">(7%)</span></td>
-					<td>134.17 GiB <span class="perc">(93%)</span></td>
+					<td>10.16 GiB <span class="perc">(7%)</span></td>
+					<td>134.23 GiB <span class="perc">(93%)</span></td>
 					<td>
 						
 			<div class="new_bar_outer">
@@ -469,7 +469,33 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/memory</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/blkio</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/devices</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/perf_event</td>
 					<td>cgroup</td>
 					<td>0 B</td>
 					<td>?</td>
@@ -483,6 +509,19 @@
 		
 					</td>
 				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/cpu,cpuacct</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/cpuset</td>
 					<td>cgroup</td>
 					<td>0 B</td>
 					<td>?</td>
@@ -521,33 +560,7 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/blkio</td>
-					<td>cgroup</td>
-					<td>0 B</td>
-					<td>?</td>
-					<td>0 B</td>
-					<td>
-						
-			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 0%; "></div>
-				<div class="new_bar_text">N/A</div>
-			</div>
-		
-					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/cpuset</td>
-					<td>cgroup</td>
-					<td>0 B</td>
-					<td>?</td>
-					<td>0 B</td>
-					<td>
-						
-			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 0%; "></div>
-				<div class="new_bar_text">N/A</div>
-			</div>
-		
-					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/perf_event</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/memory</td>
 					<td>cgroup</td>
 					<td>0 B</td>
 					<td>?</td>
@@ -573,19 +586,6 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/devices</td>
-					<td>cgroup</td>
-					<td>0 B</td>
-					<td>?</td>
-					<td>0 B</td>
-					<td>
-						
-			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 0%; "></div>
-				<div class="new_bar_text">N/A</div>
-			</div>
-		
-					</td>
 				</tr><tr><td>systemd-1</td><td>/proc/sys/fs/binfmt_misc</td>
 					<td>autofs</td>
 					<td>0 B</td>
@@ -599,8 +599,8 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>debugfs</td><td>/sys/kernel/debug</td>
-					<td>debugfs</td>
+				</tr><tr><td>hugetlbfs</td><td>/dev/hugepages</td>
+					<td>hugetlbfs</td>
 					<td>0 B</td>
 					<td>?</td>
 					<td>0 B</td>
@@ -612,8 +612,8 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>hugetlbfs</td><td>/dev/hugepages</td>
-					<td>hugetlbfs</td>
+				</tr><tr><td>debugfs</td><td>/sys/kernel/debug</td>
+					<td>debugfs</td>
 					<td>0 B</td>
 					<td>?</td>
 					<td>0 B</td>
@@ -668,8 +668,8 @@
 		<tr class="alt">
 			<td colspan="3">Totals: </td>
 			<td>145.95 GiB</td>
-			<td>10.3 GiB</td>
-			<td>135.65 GiB</td>
+			<td>10.24 GiB</td>
+			<td>135.71 GiB</td>
 			<td>
 				
 			<div class="new_bar_outer">
@@ -682,13 +682,13 @@
 	</table>
 </div>
 <div id="foot">
-	Generated by <a href="https://github.com/jrgp/linfo"><em>Linfo</em></a> (2015-09-15) in 0.12 seconds.<br>
+	Generated by <a href="https://github.com/jrgp/linfo"><em>Linfo</em></a> (2015-09-15) in 0.33 seconds.<br>
 	<em>Linfo</em> &copy; 2010 &ndash; 2016
 	Joseph Gillotti &amp; friends. Source code licensed under GPL.
 </div>
 <div id="foot_time">
 	<br />
-	Generated on 03/02/16 07:16 PM (UTC)
+	Generated on 03/07/16 03:35 PM (UTC)
 </div>
 <script>Linfo.init()</script>
 </body>

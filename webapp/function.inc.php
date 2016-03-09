@@ -46,11 +46,11 @@
 	function login($user,$pass)
 	{
 		$connect = connecttoDB();
-		$query = 'SELECT `id`,`name`,`surname`,`username` , `passwd` FROM `member` WHERE `username` = :username AND `passwd` = :password';
+		$query = 'SELECT * FROM `member` WHERE `username` = :username AND `passwd` = :password';
 		$stmt = $connect->prepare($query);
 		$stmt->execute(array(':username' => $user,':password' => $pass ));
-		$r_Count = $stmt->rowCount();
-		return $r_Count>0;
+		$getD = $stmt->fetch(PDO::FETCH_ASSOC);
+		return $getD;
 	}
 	function get_product()
 	{

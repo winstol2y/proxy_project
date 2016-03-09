@@ -6,6 +6,9 @@ acl CONNECT method CONNECT
 #debug
 debug_option 28,9
 
+# And finally deny all other access to this proxy
+http_access allow all
+
 # Deny requests to certain unsafe ports
 http_access deny !Safe_ports
 
@@ -19,12 +22,8 @@ http_access deny manager
 #http_access allow localnet
 http_access allow localhost
 
-# And finally deny all other access to this proxy
-http_access allow all
-
 # Squid normally listens to port 3128
-http_port 12344
-http_port 12345
+http_port 2520 transparent
 
 <% @data_block_url.each_hash do |row_block_url| -%>
 acl time_<%= row_block_url['file_name'] %> time <%= row_block_url['block_date_time']%> 

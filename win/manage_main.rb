@@ -27,7 +27,6 @@ end
 
 ##########################################################################################################################
 
-
 	`rm /etc/squid3/squid.conf` # delete file squid.conf before create new file
 	`rm /etc/squid3/blockD/*`
 

@@ -155,9 +155,11 @@
 		}
 		shell_exec("/var/www/html/oak2/manage_dhcp.rb");
 		shell_exec('/var/www/html/oak2/restart_service_dhcp.sh');
-		backalertBox();
+		mysql_close($con);
+		mysql_close($objConnect);
 		fclose($objCSV);
+		backalertBox();
+		
 	}
-	mysql_close($con);
-	mysql_close($objConnect);
+
 ?>

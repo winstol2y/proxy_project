@@ -17,4 +17,10 @@ host <%= row1['name']%> {
 	fixed-address <%= row1['ip']%>;
 }
 <%- end -%>
+<% @data_class_wifi.each_hash do |row1| -%>
+host <%= row1['wifi_id']%> {
+        hardware ethernet <%= row1['mac']%>;
+	fixed-address <%= row1['ip']%>;
+}
+<%- end -%>
 

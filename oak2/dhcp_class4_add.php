@@ -178,7 +178,7 @@
 					
 		shell_exec("/var/www/html/oak2/manage_dhcp.rb");
 		shell_exec('/var/www/html/oak2/restart_service_dhcp.sh');
+		mysql_close($con);
 		header('Location: dhcp_class4.php');
 	}
-	mysql_close($con);
 ?>
