@@ -1,0 +1,458 @@
+1001516425.793     16 203.86.131.225 TCP_MISS/503 1182 GET http://www/scripts/..
+%252f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516425.794      1 202.181.210.162 TCP_MISS/503 1280 GET http://www/msadc/..%
+255c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe
+? - DIRECT/www -
+1001516426.063      1 61.188.207.24 TCP_MISS/503 1150 GET http://www/c/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516426.183     22 202.163.222.43 TCP_MISS/503 1130 GET http://www/MSADC/root
+.exe? - DIRECT/www -
+1001516426.344      1 202.121.0.197 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516426.396     38 202.64.127.138 TCP_MISS/503 1150 GET http://www/c/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516426.475      1 202.81.243.193 TCP_MISS/503 1182 GET http://www/scripts/..
+%%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516426.770     19 202.102.148.130 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516427.317    547 202.38.126.163 TCP_MISS/503 1184 GET http://www/scripts/..
+%c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516427.521  16931 211.162.32.209 TCP_REFRESH_MISS/000 3144 GET http://ads.v3
+exchange.com/showme? - DIRECT/ads.v3exchange.com -
+1001516428.199    116 202.44.45.191 NONE/411 1559 GET http://202.88.228.61/defau
+lt.ida? - NONE/- -
+1001516428.236      1 202.108.221.121 TCP_MISS/503 1134 GET http://www/scripts/r
+oot.exe? - DIRECT/www -
+1001516428.254   8452 211.162.32.209 TCP_REFRESH_MISS/000 247 GET http://ads.v3e
+xchange.com/showme? - DIRECT/ads.v3exchange.com -
+1001516428.289     26 202.103.71.144 TCP_MISS/503 1150 GET http://www/c/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516428.297      7 194.204.223.39 NONE/411 1559 GET http://202.88.229.42/defa
+ult.ida? - NONE/- -
+1001516428.424     22 202.87.40.235 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516428.462      2 202.106.119.40 TCP_MISS/503 1182 GET http://www/scripts/..
+%%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516428.541     21 202.186.86.181 TCP_MISS/503 1184 GET http://www/scripts/..
+%c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516428.918     27 202.145.179.163 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516428.977     58 202.108.129.75 NONE/411 1559 GET http://202.88.224.141/def
+ault.ida? - NONE/- -
+1001516429.219      1 202.108.66.2 TCP_MISS/503 1182 GET http://www/scripts/..%%
+35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516429.586      0 202.100.26.212 TCP_MISS/503 1184 GET http://www/scripts/..
+%c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516429.631      1 202.97.181.17 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%2f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516429.632      1 202.107.76.2 TCP_MISS/503 1184 GET http://www/scripts/..%c
+1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516429.671      1 202.179.3.117 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516429.703     15 202.117.121.60 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516429.739     35 202.122.1.102 TCP_MISS/503 1150 GET http://www/d/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516429.832      0 202.105.191.8 TCP_MISS/503 1182 GET http://www/scripts/..%
+255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516429.951      0 202.99.48.31 TCP_MISS/503 1150 GET http://www/c/winnt/syst
+em32/cmd.exe? - DIRECT/www -
+1001516430.014     18 202.163.222.43 TCP_MISS/503 1182 GET http://www/scripts/..
+%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516430.148     40 202.109.114.215 TCP_MISS/503 1130 GET http://www/MSADC/roo
+t.exe? - DIRECT/www -
+1001516430.172     23 202.102.168.81 TCP_MISS/503 1280 GET http://www/msadc/..%2
+55c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe?
+ - DIRECT/www -
+1001516430.316      0 202.38.126.163 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516430.386      0 202.97.215.145 TCP_MISS/503 1186 GET http://www/scripts/..
+%%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516430.467     80 202.117.120.24 TCP_MISS/503 1280 GET http://www/msadc/..%2
+55c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe?
+ - DIRECT/www -
+1001516430.776    101 202.99.67.56 TCP_MISS/503 1130 GET http://www/MSADC/root.e
+xe? - DIRECT/www -
+1001516431.132     61 202.74.32.130 NONE/411 1559 GET http://202.88.226.189/defa
+ult.ida? - NONE/- -
+1001516431.197      8 202.130.156.43 TCP_MISS/503 1130 GET http://www/MSADC/root
+.exe? - DIRECT/www -
+1001516431.221     18 202.104.128.164 TCP_MISS/503 1182 GET http://www/scripts/.
+.%%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516431.284     62 202.110.162.237 TCP_MISS/503 1280 GET http://www/msadc/..%
+255c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe
+? - DIRECT/www -
+1001516431.347      0 202.116.0.11 TCP_MISS/503 1134 GET http://www/scripts/root
+.exe? - DIRECT/www -
+1001516431.445      1 202.188.170.205 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c0%2f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516431.456     10 202.98.127.23 TCP_MISS/503 1130 GET http://www/MSADC/root.
+exe? - DIRECT/www -
+1001516431.476     19 202.132.46.26 TCP_MISS/503 1224 GET http://www/_vti_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516431.883     20 202.9.136.47 TCP_MISS/503 1182 GET http://www/scripts/..%2
+55c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516431.900      0 202.85.42.154 TCP_MISS/503 1150 GET http://www/c/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516431.986     16 202.101.107.39 TCP_MISS/503 1186 GET http://www/scripts/..
+%%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516431.994      7 202.43.68.146 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516432.105     57 202.109.114.122 TCP_MISS/503 1182 GET http://www/scripts/.
+.%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516432.260      1 202.130.40.57 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516432.275      0 202.107.35.66 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516432.410     74 202.184.31.11 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516432.633     44 202.38.126.163 TCP_MISS/503 1186 GET http://www/scripts/..
+%%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516432.635      0 202.181.233.250 TCP_MISS/503 1134 GET http://www/scripts/r
+oot.exe? - DIRECT/www -
+1001516432.707     44 202.64.127.138 TCP_MISS/503 1150 GET http://www/d/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516432.732      1 203.129.227.3 TCP_MISS/503 1150 GET http://www/d/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516432.867     27 202.201.0.146 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516432.902      0 202.181.210.162 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516432.987      0 202.102.148.130 TCP_MISS/503 1150 GET http://www/d/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516433.081     15 202.103.98.103 NONE/411 1559 GET http://202.88.226.74/defa
+ult.ida? - NONE/- -
+1001516433.088      6 202.144.13.61 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516433.167      9 202.181.186.120 TCP_MISS/503 1182 GET http://www/scripts/.
+.%252f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516433.221     54 202.104.128.164 TCP_MISS/503 1182 GET http://www/scripts/.
+.%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516433.422      0 202.99.16.22 TCP_MISS/503 1182 GET http://www/scripts/..%%
+35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516433.446      0 202.108.66.2 TCP_MISS/503 1224 GET http://www/_mem_bin/..%
+255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516433.591     56 202.110.114.153 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516433.642      2 202.31.150.167 NONE/411 1559 GET http://202.88.227.253/def
+ault.ida? - NONE/- -
+1001516433.645      0 202.108.221.121 TCP_MISS/503 1130 GET http://www/MSADC/roo
+t.exe? - DIRECT/www -
+1001516433.817     25 202.107.35.66 TCP_MISS/503 1150 GET http://www/c/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516433.868      0 202.81.243.193 TCP_MISS/503 1190 GET http://www/scripts/..
+%25%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516433.943     75 202.110.115.158 TCP_MISS/503 1190 GET http://www/scripts/.
+.%25%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516434.451     31 202.144.13.61 TCP_MISS/503 1224 GET http://www/_mem_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.046      1 202.100.26.212 TCP_MISS/503 1186 GET http://www/scripts/..
+%%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.053      6 202.179.3.117 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%2f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.199     31 202.77.142.100 TCP_MISS/503 1150 GET http://www/d/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516435.267      1 202.196.64.41 TCP_MISS/503 1280 GET http://www/msadc/..%25
+5c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe?
+- DIRECT/www -
+1001516435.321     25 202.9.70.141 TCP_MISS/503 1182 GET http://www/scripts/..%2
+52f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.361      0 202.105.191.8 TCP_MISS/503 1224 GET http://www/_vti_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.373     11 202.77.13.7 TCP_MISS/503 1224 GET http://www/_mem_bin/..%2
+55c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.515      0 202.64.137.98 TCP_MISS/503 1190 GET http://www/scripts/..%
+25%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.650     12 202.188.170.205 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.906      1 202.121.0.197 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%2f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516435.921     14 202.181.210.162 TCP_MISS/503 1134 GET http://www/scripts/r
+oot.exe? - DIRECT/www -
+1001516435.931     10 202.103.25.179 TCP_MISS/503 1280 GET http://www/msadc/..%2
+55c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe?
+ - DIRECT/www -
+1001516435.988     56 202.38.164.131 NONE/411 1559 GET http://202.88.229.204/def
+ault.ida? - NONE/- -
+1001516436.197     28 202.102.148.130 TCP_MISS/503 1224 GET http://www/_mem_bin/
+..%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516436.227      0 202.213.224.235 TCP_MISS/503 1130 GET http://www/MSADC/roo
+t.exe? - DIRECT/www -
+1001516436.278      1 202.97.215.145 TCP_MISS/503 1182 GET http://www/scripts/..
+%%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516436.280      1 202.130.156.43 TCP_MISS/503 1150 GET http://www/c/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516436.282      1 202.87.40.235 TCP_MISS/503 1130 GET http://www/MSADC/root.
+exe? - DIRECT/www -
+1001516436.316      0 202.107.76.2 TCP_MISS/503 1186 GET http://www/scripts/..%%
+35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516436.520      1 202.117.121.208 TCP_MISS/503 1134 GET http://www/scripts/r
+oot.exe? - DIRECT/www -
+1001516436.690      2 202.179.3.117 TCP_MISS/503 1186 GET http://www/scripts/..%
+%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516436.880      0 202.106.119.40 TCP_MISS/503 1190 GET http://www/scripts/..
+%25%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516437.055      1 202.122.1.102 TCP_MISS/503 1182 GET http://www/scripts/..%
+255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516437.074      0 203.129.227.3 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516437.277      1 202.108.66.2 TCP_MISS/503 1190 GET http://www/scripts/..%2
+5%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516437.766     11 202.107.34.113 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516437.827     38 202.105.237.166 TCP_MISS/503 1190 GET http://www/scripts/.
+.%25%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516438.057      1 202.98.127.23 TCP_MISS/503 1150 GET http://www/c/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516438.510     21 202.144.13.61 TCP_MISS/503 1280 GET http://www/msadc/..%25
+5c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe?
+- DIRECT/www -
+1001516438.584      0 202.156.2.243 NONE/411 1672 GET http://202.88.224.145/defa
+ult.ida? - NONE/- -
+1001516438.594      0 202.181.210.162 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c0%2f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516438.721     36 202.9.136.47 TCP_MISS/503 1224 GET http://www/_vti_bin/..%
+255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516438.805      9 202.184.31.11 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%2f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516439.133      1 202.102.148.130 TCP_MISS/503 1182 GET http://www/scripts/.
+.%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516439.250     31 202.109.114.122 TCP_MISS/503 1224 GET http://www/_vti_bin/
+..%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516439.437    113 202.163.222.43 TCP_MISS/503 1224 GET http://www/_vti_bin/.
+.%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516439.561    124 202.38.164.131 NONE/411 1559 GET http://202.88.231.147/def
+ault.ida? - NONE/- -
+1001516439.723     17 202.110.162.237 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516439.846    122 202.30.222.137 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516439.965      0 202.181.233.250 TCP_MISS/503 1130 GET http://www/MSADC/roo
+t.exe? - DIRECT/www -
+1001516440.034     10 202.117.120.24 TCP_MISS/503 1184 GET http://www/scripts/..
+%c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516440.075     40 202.106.119.40 TCP_MISS/503 1182 GET http://www/scripts/..
+%252f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516440.184      0 202.108.221.121 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516440.250      1 202.77.142.100 TCP_MISS/503 1182 GET http://www/scripts/..
+%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516440.456     56 202.107.35.66 TCP_MISS/503 1186 GET http://www/scripts/..%
+%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516440.608      1 203.129.227.3 TCP_MISS/503 1182 GET http://www/scripts/..%
+255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516440.662      1 202.163.222.43 TCP_MISS/503 1150 GET http://www/c/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516440.856      1 202.104.128.164 TCP_MISS/503 1224 GET http://www/_vti_bin/
+..%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516440.961     90 202.179.3.117 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516441.023     18 202.111.153.82 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516441.092     68 202.112.112.241 NONE/411 1559 GET http://202.88.227.92/def
+ault.ida? - NONE/- -
+1001516441.392    201 202.105.191.8 TCP_MISS/503 1224 GET http://www/_mem_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516441.394      2 202.99.48.31 TCP_MISS/503 1150 GET http://www/d/winnt/syst
+em32/cmd.exe? - DIRECT/www -
+1001516441.394      2 202.130.156.43 TCP_MISS/503 1150 GET http://www/d/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516441.782     13 202.122.1.102 TCP_MISS/503 1224 GET http://www/_vti_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516441.965     40 202.108.66.2 TCP_MISS/503 1182 GET http://www/scripts/..%2
+52f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516442.022     31 202.38.126.163 TCP_MISS/503 1130 GET http://www/MSADC/root
+.exe? - DIRECT/www -
+1001516442.099      0 203.129.227.3 TCP_MISS/503 1130 GET http://www/MSADC/root.
+exe? - DIRECT/www -
+1001516442.247     15 202.181.210.162 TCP_MISS/503 1130 GET http://www/MSADC/roo
+t.exe? - DIRECT/www -
+1001516442.304     56 202.97.215.145 TCP_MISS/503 1190 GET http://www/scripts/..
+%25%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516442.617     46 12.9.234.36 TCP_MISS/503 1134 GET http://www/scripts/root.
+exe? - DIRECT/www -
+1001516442.802      0 202.38.126.163 TCP_MISS/503 1182 GET http://www/scripts/..
+%%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516442.892     33 202.184.31.11 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516442.941      0 202.103.71.144 TCP_MISS/503 1150 GET http://www/d/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516443.205     22 202.64.137.98 TCP_MISS/503 1182 GET http://www/scripts/..%
+252f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.346      1 202.9.136.47 TCP_MISS/503 1224 GET http://www/_mem_bin/..%
+255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.358     11 202.43.68.146 TCP_MISS/503 1130 GET http://www/MSADC/root.
+exe? - DIRECT/www -
+1001516443.377     18 202.107.76.2 TCP_MISS/503 1182 GET http://www/scripts/..%%
+35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.428     18 202.122.1.109 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.450     20 202.67.251.54 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516443.478     27 202.99.16.22 TCP_MISS/503 1190 GET http://www/scripts/..%2
+5%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.581      1 202.87.40.235 TCP_MISS/503 1150 GET http://www/c/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516443.589      0 202.181.210.162 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.647      0 202.201.0.146 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%2f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.658      1 202.188.170.205 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516443.705     46 202.85.42.154 TCP_MISS/503 1150 GET http://www/d/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516443.722     16 202.121.0.197 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516444.087    365 202.72.78.16 NONE/411 1559 GET http://202.88.228.55/defaul
+t.ida? - NONE/- -
+1001516444.138     30 202.97.181.17 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516444.146      7 202.109.74.216 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516444.155      0 202.108.66.2 TCP_MISS/503 1280 GET http://www/msadc/..%255
+c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe? -
+ DIRECT/www -
+1001516444.279     46 202.109.114.215 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516444.568      0 202.107.35.66 TCP_MISS/503 1150 GET http://www/d/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516444.768     18 202.132.46.26 TCP_MISS/503 1224 GET http://www/_mem_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516444.774      5 202.105.191.8 TCP_MISS/503 1182 GET http://www/scripts/..%
+255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516444.931     26 202.107.34.113 TCP_MISS/503 1130 GET http://www/MSADC/root
+.exe? - DIRECT/www -
+1001516445.016      1 202.64.127.138 TCP_MISS/503 1182 GET http://www/scripts/..
+%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516445.040     23 202.77.142.100 TCP_MISS/503 1224 GET http://www/_vti_bin/.
+.%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516445.114      0 202.117.121.208 TCP_MISS/503 1130 GET http://www/MSADC/roo
+t.exe? - DIRECT/www -
+1001516445.121      0 202.56.133.71 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516445.247      0 202.213.224.235 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516445.752      1 210.117.14.102 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516445.869    116 202.77.13.7 TCP_MISS/503 1280 GET http://www/msadc/..%255c
+../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe? -
+DIRECT/www -
+1001516445.919     30 202.98.127.23 TCP_MISS/503 1150 GET http://www/d/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516446.351      1 202.181.233.250 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516446.423      0 202.117.119.48 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516446.598     38 202.77.142.100 TCP_MISS/503 1224 GET http://www/_mem_bin/.
+.%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516446.680      1 202.103.25.179 TCP_MISS/503 1184 GET http://www/scripts/..
+%c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516446.693     12 202.99.41.61 TCP_MISS/503 1134 GET http://www/scripts/root
+.exe? - DIRECT/www -
+1001516446.744     22 202.163.222.43 TCP_MISS/503 1150 GET http://www/d/winnt/sy
+stem32/cmd.exe? - DIRECT/www -
+1001516446.880      1 202.181.210.162 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516446.881      1 202.107.76.2 TCP_MISS/503 1190 GET http://www/scripts/..%2
+5%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516446.920      0 202.108.221.121 TCP_MISS/503 1150 GET http://www/d/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516446.974     53 202.39.17.98 NONE/411 1559 GET http://202.88.225.151/defau
+lt.ida? - NONE/- -
+1001516447.024     15 202.104.128.164 TCP_MISS/503 1224 GET http://www/_mem_bin/
+..%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516447.101     39 202.122.1.102 TCP_MISS/503 1224 GET http://www/_mem_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516447.102      1 202.184.31.11 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516447.104      1 202.196.57.40 TCP_MISS/503 1186 GET http://www/scripts/..%
+%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516447.255      1 202.87.40.235 TCP_MISS/503 1150 GET http://www/d/winnt/sys
+tem32/cmd.exe? - DIRECT/www -
+1001516447.385      6 202.188.170.205 TCP_MISS/503 1186 GET http://www/scripts/.
+.%%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516447.786     24 202.163.222.43 TCP_MISS/503 1224 GET http://www/_mem_bin/.
+.%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516447.829      0 202.117.121.208 TCP_MISS/503 1150 GET http://www/c/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516447.873     22 202.41.10.29 TCP_MISS/503 1182 GET http://www/scripts/..%2
+55c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516447.875      0 202.67.251.54 TCP_MISS/503 1130 GET http://www/MSADC/root.
+exe? - DIRECT/www -
+1001516448.203      0 202.201.0.146 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516448.263      0 202.107.122.54 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516448.279      0 202.109.114.122 TCP_MISS/503 1224 GET http://www/_mem_bin/
+..%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516448.422      1 202.30.222.137 TCP_MISS/503 1130 GET http://www/MSADC/root
+.exe? - DIRECT/www -
+1001516448.432      9 202.104.245.236 TCP_MISS/503 1134 GET http://www/scripts/r
+oot.exe? - DIRECT/www -
+1001516448.438      5 202.9.136.47 TCP_MISS/503 1280 GET http://www/msadc/..%255
+c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe? -
+ DIRECT/www -
+1001516448.439      1 202.110.114.153 TCP_MISS/503 1150 GET http://www/d/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516448.446      6 202.109.72.4 TCP_MISS/503 1190 GET http://www/scripts/..%2
+5%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516448.465     16 202.122.1.109 TCP_MISS/503 1186 GET http://www/scripts/..%
+%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+1001516448.582      0 202.104.128.164 TCP_MISS/503 1134 GET http://www/scripts/r
+oot.exe? - DIRECT/www -
+1001516448.586      0 12.9.234.36 TCP_MISS/503 1130 GET http://www/MSADC/root.ex
+e? - DIRECT/www -
+1001516448.628     41 202.107.35.66 TCP_MISS/503 1182 GET http://www/scripts/..%
+%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516448.650     21 202.121.0.197 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516449.087      0 202.205.136.37 TCP_MISS/503 1134 GET http://www/scripts/ro
+ot.exe? - DIRECT/www -
+1001516449.152      0 202.101.107.39 TCP_MISS/503 1182 GET http://www/scripts/..
+%%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516449.178      0 202.100.26.212 TCP_MISS/503 1182 GET http://www/scripts/..
+%%35c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516449.260     60 202.132.46.26 TCP_MISS/503 1280 GET http://www/msadc/..%25
+5c../..%255c../..%255c/..%c1%1c../..%c1%1c../..%c1%1c../winnt/system32/cmd.exe?
+- DIRECT/www -
+1001516449.301      0 202.109.114.215 TCP_MISS/503 1150 GET http://www/d/winnt/s
+ystem32/cmd.exe? - DIRECT/www -
+1001516449.430     17 202.142.79.18 TCP_MISS/503 1184 GET http://www/scripts/..%
+c0%af../winnt/system32/cmd.exe? - DIRECT/www -
+1001516449.477      0 202.99.48.31 TCP_MISS/503 1182 GET http://www/scripts/..%2
+55c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516449.497      0 61.128.159.22 TCP_MISS/503 1134 GET http://www/scripts/roo
+t.exe? - DIRECT/www -
+1001516449.581      0 202.85.42.154 TCP_MISS/503 1182 GET http://www/scripts/..%
+255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516449.606      0 202.109.74.216 TCP_MISS/503 1130 GET http://www/MSADC/root
+.exe? - DIRECT/www -
+1001516449.611      1 202.102.159.142 TCP_MISS/503 1134 GET http://www/scripts/r
+oot.exe? - DIRECT/www -
+1001516449.770     51 202.144.13.61 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%1c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.016     65 202.179.3.117 TCP_MISS/503 1184 GET http://www/scripts/..%
+c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.036     19 202.107.35.66 TCP_MISS/503 1182 GET http://www/scripts/..%
+255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.093     36 202.130.156.43 TCP_MISS/503 1182 GET http://www/scripts/..
+%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.181      0 202.105.191.8 TCP_MISS/503 1224 GET http://www/_vti_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.440     68 202.97.181.17 TCP_MISS/503 1130 GET http://www/MSADC/root.
+exe? - DIRECT/www -
+1001516450.544     12 202.81.243.193 TCP_MISS/503 1182 GET http://www/scripts/..
+%252f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.557     11 203.129.227.3 TCP_MISS/503 1224 GET http://www/_vti_bin/..
+%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.686      0 202.181.210.162 TCP_MISS/503 1184 GET http://www/scripts/.
+.%c1%9c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.916      0 202.99.16.22 TCP_MISS/503 1182 GET http://www/scripts/..%2
+52f../winnt/system32/cmd.exe? - DIRECT/www -
+1001516450.925      1 202.41.10.29 TCP_MISS/503 1134 GET http://www/scripts/root
+.exe? - DIRECT/www -
+1001516451.247     34 202.64.127.138 TCP_MISS/503 1224 GET http://www/_vti_bin/.
+.%255c../..%255c../..%255c../winnt/system32/cmd.exe? - DIRECT/www -
+1001516451.262      1 202.186.86.181 TCP_MISS/503 1186 GET http://www/scripts/..
+%%35%63../winnt/system32/cmd.exe? - DIRECT/www -
+

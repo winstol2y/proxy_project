@@ -139,22 +139,21 @@
 
 			if($statusQuery && $statusQuery2 && $statusQuery3 && $statusQuery4 && $statusQuery5 && $statusQuery6 && $statusQuery7 && $statusQuery8)
 			{
-				
-				$strSQL = "INSERT INTO `dhcp`.`class3`";
-				$strSQL .="(hw,name,ip,expire)";
-				$strSQL .="VALUES ";
-				$strSQL .="('$objArr[0]','$objArr[1]','$objArr[2]','$objArr[3]')";
+				$strSQL = "INSERT INTO `dhcp`.`class3` (hw,name,ip,expire) VALUES ('$objArr[0]','$objArr[1]','$objArr[2]','$objArr[3]')";
 				$objQuery = mysql_query($strSQL);
+				if (!$objQuery) 
+				{
+					$texttoalert = die(mysql_error());
+					alertBox($texttoalert);
+				}
 			}
 			else
 			{
 				alertBox($texttoalert);
 			}
-			
 		}
 		shell_exec("/var/www/html/oak2/manage_dhcp.rb");
 		shell_exec('/var/www/html/oak2/restart_service_dhcp.sh');
-		mysql_close($objConnect);
 		mysql_close($con);
 		fclose($objCSV);
 		backalertBox();

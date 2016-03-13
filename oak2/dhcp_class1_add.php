@@ -32,6 +32,10 @@
 	$statusQuery11 = TRUE;
 	$statusQuery12 = TRUE;
 	$statusQuery13 = TRUE;
+	$statusQuery14 = TRUE;
+	$statusQuery15 = TRUE;
+	$statusQuery16 = TRUE;
+	$statusQuery17 = TRUE;
 
 	date_default_timezone_set("Asia/Bangkok"); //set time zone
 	date_default_timezone_get();
@@ -152,33 +156,71 @@
 		elseif($numCharecter=12)
 		{	
 			$result_mac = trim($result_mac);
-			$mac_query = "SELECT * FROM `class1` WHERE `hw` = '".$result_mac."'";
-			$checkMac = mysql_query("$mac_query");
 
-			if(mysql_num_rows($checkMac) > 0)
+			$mac_query_1 = "SELECT * FROM `class1` WHERE `hw` = '".$result_mac."'";
+			$checkMac1 = mysql_query($mac_query1);
+			$mac_query_2 = "SELECT * FROM `class2` WHERE `hw` = '".$result_mac."'";
+			$checkMac2 = mysql_query($mac_query2);
+			$mac_query_3 = "SELECT * FROM `class3` WHERE `hw` = '".$result_mac."'";
+			$checkMac3 = mysql_query($mac_query3);
+			$mac_query_4 = "SELECT * FROM `class4` WHERE `hw` = '".$result_mac."'";
+			$checkMac4 = mysql_query($mac_query4);
+			$mac_query_wifi = "SELECT * FROM `class_wifi` WHERE `mac` = '".$result_mac."'";
+			$checkMacWifi = mysql_query($mac_query_wifi);
+
+			if(mysql_num_rows($checkMac1) > 0)
 			{
 				$statusQuery12 = FALSE;
-				$texttoalert = $texttoalert.'MAC Address is more than 12 character \n';
+				$texttoalert = $texttoalert.'Have same MAC Address in User Class 1 \n';
+			}
+			if(mysql_num_rows($checkMac2) > 0)
+			{
+				$statusQuery13 = FALSE;
+				$texttoalert = $texttoalert.'Have same MAC Address in User Class 2 \n';
+			}
+			if(mysql_num_rows($checkMac3) > 0)
+			{
+				$statusQuery14 = FALSE;
+				$texttoalert = $texttoalert.'Have same MAC Address in User Class 3 \n';
+			}
+			if(mysql_num_rows($checkMac4) > 0)
+			{
+				$statusQuery15 = FALSE;
+				$texttoalert = $texttoalert.'Have same MAC Address in User Class 4 \n';
+			}
+			if(mysql_num_rows($checkMacWifi) > 0)
+			{
+				$statusQuery16 = FALSE;
+				$texttoalert = $texttoalert.'Have same MAC Address in WiFi Class \n';
 			}
 			if(preg_match("/^[a-fA-F0-9]+$/", $result) == 0)
 			{
-                $statusQuery13 = FALSE;
+                $statusQuery17 = FALSE;
 				$texttoalert = $texttoalert.'MAC Address can between A-F a-f and 0-9 \n';
 			}
 		}
 	}
 	//-----------------------[End] Check MAC-----------------------//
 
-	alertBox($texttoalert);
-	if($statusQuery && $statusQuery2 && $statusQuery3 && $statusQuery4 && $statusQuery5 && $statusQuery6 && $statusQuery7 && $statusQuery8 && $statusQuery9 && $statusQuery10 && $statusQuery11 && $statusQuery12 && $statusQuery13)
+	if($statusQuery && $statusQuery2 && $statusQuery3 && $statusQuery4 && $statusQuery5 && $statusQuery6 && $statusQuery7 && $statusQuery8 && $statusQuery9 && $statusQuery10 && $statusQuery11 && $statusQuery12 && $statusQuery13 && $statusQuery14 && $statusQuery15 && $statusQuery16 && $statusQuery17)
 	{
 		$query_add = "INSERT INTO `dhcp`.`class1` (`hw`, `name`, `ip`, `expire`) VALUES ('".$result_mac."','".$_POST["name_add"]."','".$_POST["ip_add"]."','".$_POST["time_add"]."')";
-
-		mysql_query($query_add) or die(mysql_error());
-					
-		shell_exec("/var/www/html/oak2/manage_dhcp.rb");
-		shell_exec('/var/www/html/oak2/restart_service_dhcp.sh');
+		$query_DB = mysql_query($query_add);
+		if (!$query_DB) 
+		{
+			$texttoalert = die(mysql_error());
+			alertBox($texttoalert);
+		}
+		else
+		{
+			mysql_close($con);
+			shell_exec("/var/www/html/oak2/manage_dhcp.rb");
+			shell_exec('/var/www/html/oak2/restart_service_dhcp.sh');	
+		}
+	}
+	else
+	{	
 		mysql_close($con);
-		header('Location: dhcp_class1.php');
+		alertBox($texttoalert);
 	}
 ?>

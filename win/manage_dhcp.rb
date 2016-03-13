@@ -60,7 +60,7 @@ end
 #	file_named_config.puts insert_named.render("/usr/local/www/dhcp/template_named_config.erb")
 #	file_named_config.close
 
-	file_dhcp = File.open("/var/www/html/win/dhcpd.conf", 'w') 
+	file_dhcp = File.open("/etc/dhcp/dhcpd.conf", 'w') 
 	file_dhcp.puts insert_dhcp.render("/var/www/html/win/template_dhcp.erb")
 	file_dhcp.close
 

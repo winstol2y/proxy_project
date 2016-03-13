@@ -1,0 +1,233 @@
+<?
+$all = file_get_contents('upload/access.log');
+
+$arr = explode ( "\r", $all );
+?>
+<?
+$host="localhost";
+$user="root";
+$pw="root";
+$dbname="logfiles";
+$c = mysql_connect($host,$user,$pw);
+if (!$c) {
+            echo "<h4>ERROR : Can't connect database </h4>";
+         }
+mysql_select_db($dbname,$c) or die("ไม่สามารถใช้ฐานข้อมูล $dbname ได้");
+?>
+<table border="1">
+<tr>
+<th>time</th>
+<th>duration</th>
+<th>client_address</th>
+<th>result_codes</th>
+<th>bytes</th>
+<th>request_method</th>
+<th>URL</th>
+<th>7.1</th>
+<th>7.2</th>
+<th>rfc931</th>
+<th>hierarchy_code</th>
+<th>type</th>
+</tr>
+<?
+$i = 0;
+$c = 0;
+?>
+
+<?
+for($q=0; $q<count($arr);$q++)
+{
+	$count=0;
+
+	if($arr[$q]!= NULL)
+	{
+?>
+<tr>
+<?
+$arr2 = explode ( " ", $arr[$q] );
+
+for($u=0; $u < count($arr2); $u++)
+{
+	if($arr2[$u] != NULL)
+	{
+		$count++;
+
+		if($count == 7 )
+		{
+			$pattern = "/http:\/\/([^\/]+)\//i";
+			preg_match($pattern, $arr2[$u], $matches);
+
+			$exten = explode ( ".", $matches[1] );
+
+
+			?>
+           		<td style="text-align:center"><?=$arr2[$u]?></td>
+            	<td style="text-align:center"><?=$matches[1]?></td>
+            <?
+					if(strlen($exten[count($exten)-1])<3)
+				    {
+			?>
+            			<td style="text-align:center"><?=$exten[count($exten)-2]?></td>
+            <?
+				        $type = $exten[count($exten)-2];
+					}
+					else
+					{
+			?>
+						<td style="text-align:center"><?=$exten[count($exten)-1]?></td>
+            <?
+	                    $type = $exten[count($exten)-1];
+
+					}
+             /*
+		            if($type == "com")
+					{
+						$com = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(com) VALUES ('$com')")or die('Error insert');
+					}
+					elseif($type == "net")
+					{
+						$net = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(net) VALUES ('$net')")or die('Error insert');
+					}
+					elseif($type == "co")
+					{
+						$co = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(co) VALUES ('$co')")or die('Error insert');
+					}
+					elseif($type == "in")
+					{
+						$in = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(in) VALUES ('$in')")or die('Error insert');
+					}
+					elseif($type == "or")
+					{
+						$or = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(or) VALUES ('$or')")or die('Error insert');
+					}
+					elseif($type == "ac")
+					{
+						$ac = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(ac) VALUES ('$ac')")or die('Error insert');
+					}
+					elseif($type == "go")
+					{
+						$go = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(go) VALUES ('$go')")or die('Error insert');
+					}
+					elseif($type == "mi")
+					{
+						$mi = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(mi) VALUES ('$mi')")or die('Error insert');
+					}
+				    else
+			        {
+                        $etc = $type;
+						//$result = mysql_db_query($dbname,"INSERT INTO domain(etc) VALUES ('$etc')")or die('Error insert');
+					}
+				  */
+                   //$result = mysql_db_query($dbname,"INSERT INTO domain(type) VALUES ('$type'")or die('Error insert');
+
+					//$result = mysql_db_query($dbname,"INSERT INTO domain VALUES ('$com','$net','$co','$in','$or','$ac','$go','$mi','$etc')")or die('Error insert');
+					//unset($com);unset($net);unset($co);unset($in);unset($or);unset($ac);unset($go);unset($mi);unset($etc);
+
+
+
+		}
+		else
+		{
+?>
+
+		<td style="text-align:center"><?=$arr2[$u]?></td>
+<?
+
+		}//ifelse inner
+	}//end if
+}//end for
+?>
+</tr>
+<?
+
+
+
+$result = mysql_db_query($dbname,"INSERT INTO domain(type,url) VALUES ('$type','$matches[1]')")or die('Error insert');
+//$result = mysql_db_query($dbname,"INSERT INTO domain(url) VALUES ('$matches[1]')")or die('Error insert');
+
+
+//$result = mysql_db_query($dbname,"INSERT INTO domain VALUES ('$com','$net','$co','$in','$or','$ac','$go','$mi','$etc')")or die('Error insert');
+
+
+	}
+}
+?>
+</table>
+<?
+/*$sql = mysql_db_query($dbname,'Select * from domain where mi = "mi"')or die('Error conndting to mysql');
+
+	                while($result = mysql_fetch_array($sql))
+						{
+		           echo  $result['mi']." ";
+				        } */
+$type = array();
+$numType = array();
+$sql = mysql_db_query($dbname,'Select *,count(type) AS count from domain GROUP BY type')or die('Error conndting to mysql');
+
+	                while($result = mysql_fetch_array($sql))
+						{
+		           //echo  $result['type']." : ".$result['count']."<br>";
+				   array_push($type,$result['type']);
+				   array_push($numType,$result['count']);
+				        }
+//print_r($type);
+//print_r($numType);
+?>
+<script src="js/amcharts.js" type="text/javascript"></script>
+<script src="js/jquery-1.7.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var chart;
+	var legend;
+
+            var chartData = [{
+                web: "<?=$type[0];?>",
+                value: <?=$numType[0]?>
+            }, {
+                web: "<?=$type[1]?>",
+                value: <?=$numType[1]?>
+            }, {
+                web: "<?=$type[2]?>",
+                value: <?=$numType[2]?>
+            }, {
+                web: "<?=$type[3]?>",
+                value: <?=$numType[3]?>
+            }, {
+                web: "<?=$type[4]?>",
+                value: <?=$numType[4]?>
+            }, {
+                web: "<?=$type[5]?>",
+                value: <?=$numType[5]?>
+            }, {
+                web: "<?=$type[6]?>",
+                value: <?=$numType[6]?>
+            }, {
+                web: "<?=$type[7]?>",
+                value: <?=$numType[7]?>
+            }];
+
+	AmCharts.ready(function () {
+		// PIE CHART
+		chart = new AmCharts.AmPieChart();
+		chart.dataProvider = chartData;
+		chart.titleField = "web";
+		chart.valueField = "value";
+		chart.outlineColor = "#FFFFFF";
+		chart.outlineAlpha = 0.8;
+		chart.outlineThickness = 2;
+		// this makes the chart 3D
+		chart.depth3D = 15;
+		chart.angle = 30;
+
+		// WRITE
+		chart.write("chartdiv");
+	});
+</script>
+<div id="chartdiv" style="width: 100%; height: 400px;"></div>

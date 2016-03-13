@@ -1,4 +1,7 @@
 <?php
+  require_once './session_login.inc.php';
+?>
+<?php
   function getBetween($content,$start,$end)
   {
       $r = explode($start, $content);

@@ -2,13 +2,14 @@
 require "erb"
 require "mysql"
 class Dhcp_header
-        def initialize domain_name_server, default, max, data_dhcp, data_subnet, data_subnet_eth0
+        def initialize domain_name_server, default, max, data_dhcp, data_subnet, data_subnet_eth0, data_class_wifi
                 @domain_name_server = domain_name_server
                 @default = default
                 @max = max
 		@data_dhcp = data_dhcp
 		@data_subnet = data_subnet
 		@data_subnet_eth0 = data_subnet_eth0
+		@data_class_wifi = data_class_wifi
         end
         def render path
                 content = File.read(File.expand_path(path))
@@ -45,10 +46,11 @@ end
 #end
 #	`rm /usr/local/etc/namedb/dynamic/*`
 	con = Mysql.new 'localhost', 'root', 'qwerty', 'dhcp'
-	data_dhcp = con.query("SELECT * FROM `class1` union SELECT * FROM `class2` union SELECT * FROM `class3` union SELECT * FROM `class4` union SELECT * FROM `class5`")
+	data_dhcp = con.query("SELECT * FROM `class1` union SELECT * FROM `class2` union SELECT * FROM `class3` union SELECT * FROM `class4`")
+	data_class_wifi = con.query("SELECT * FROM `class_wifi`")
 	data_subnet = con.query("SELECT * FROM subnet")
 	data_subnet_eth0 = con.query("SELECT * FROM subnet")
-	insert_dhcp = Dhcp_header.new("158.108.0.2,158.108.0.3","3600","7200",data_dhcp,data_subnet,data_subnet_eth0)
+	insert_dhcp = Dhcp_header.new("158.108.0.2,158.108.0.3","3600","7200",data_dhcp,data_subnet,data_subnet_eth0,data_class_wifi)
 
 #	zone_union = con.query("SELECT zone FROM ipv4 UNION SELECT zone FROM ipv4")
 #	zone_union2 = con.query("SELECT zone FROM ipv4 UNION SELECT zone FROM ipv4")
@@ -58,12 +60,12 @@ end
 #	file_named_config.puts insert_named.render("/usr/local/www/dhcp/template_named_config.erb")
 #	file_named_config.close
 
-	file_dhcp = File.open("/var/www/html/win/dhcpd.conf", 'w') 
-	file_dhcp.puts insert_dhcp.render("/var/www/html/win/template_dhcp.erb")
+	file_dhcp = File.open("/etc/dhcp/dhcpd.conf", 'w') 
+	file_dhcp.puts insert_dhcp.render("/var/www/html/oak2/template_dhcp.erb")
 	file_dhcp.close
 
 	file_dhcp = File.open("/etc/network/interfaces", 'w')
-	file_dhcp.puts insert_dhcp.render("/var/www/html/win/template_eth0.erb")
+	file_dhcp.puts insert_dhcp.render("/var/www/html/oak2/template_eth0.erb")
 	file_dhcp.close
 
 #	count = File.open("/usr/local/www/dhcp/count.txt", "r")

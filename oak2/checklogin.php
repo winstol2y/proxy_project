@@ -1,12 +1,6 @@
-<script type="text/javascript">
-alert("!!! Please Check Username and/or Password !!!");
-window.location.href = "index.php";
-</script>
-
 <?php
 	session_start();
-	mysql_query("SET NAMES UTF8");
-	mysql_query("SET character_set_results=utf8");
+	
 	$servername = "localhost";
 	$username = "root";
 	$password = "qwerty";
@@ -23,14 +17,13 @@ window.location.href = "index.php";
 	
 	if(!$objResult)
 	{
-		$_SESSION["login_ok"] = 0;
-		echo "Username and Password Incorrect!";	
+		$_SESSION["login"] = 0;
+		echo '<script type="text/javascript">alert("Username and Password is Incorrect");window.location.href = "./index.php";</script>';
 	}
 	else
 	{
-		$_SESSION["login_ok"] = 1;
+		$_SESSION["login"] = 1;
 		header("location:main.php");
 	}
-
 	mysql_close();
 ?>

@@ -1,4 +1,7 @@
 <?php
+  require_once './session_login.inc.php';
+?>
+<?php
   $servername = "localhost";
   $username = "root";
   $password = "qwerty";

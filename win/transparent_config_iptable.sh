@@ -12,5 +12,6 @@ iptables -A POSTROUTING -t nat -j MASQUERADE
 iptables -t nat -A PREROUTING -i eth0 -s 10.0.0.0/8 -p tcp --dport 80 -j REDIRECT --to-port 2520
 
 
-#/etc/init.d/iptables save
-#/etc/init.d/iptables restart
+/etc/init.d/iptables save
+/etc/init.d/iptables restart
+/etc/init.d/squid3 restart

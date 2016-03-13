@@ -42,7 +42,7 @@
 				
 				<tr>
 					<th>Kernel</th>
-					<td>3.19.0-42-generic</td>
+					<td>3.19.0-51-generic</td>
 				</tr>
 				
 				<tr>
@@ -57,7 +57,7 @@
 				
 				<tr>
 					<th>Uptime</th>
-					<td>3 hours, 25 minutes, 41 seconds; booted 03/07/16 12:10 PM (UTC)</td>
+					<td>3 hours, 21 minutes, 49 seconds; booted 03/11/16 04:16 PM (UTC)</td>
 				</tr>
 				
 				<tr>
@@ -72,7 +72,7 @@
 				
 				<tr>
 					<th>Load</th>
-					<td>0.07 0.03 0.05</td>
+					<td>0.00 0.01 0.05</td>
 				</tr>
 				
 				<tr>
@@ -82,7 +82,7 @@
 				
 				<tr>
 					<th>Processes</th>
-					<td>running: 3; zombie: 0; sleeping: 157; stopped: 0; total: 160</td>
+					<td>running: 3; zombie: 0; sleeping: 166; stopped: 0; total: 169</td>
 				</tr>
 				
 				<tr>
@@ -117,12 +117,12 @@
 				<tr>
 					<td>Physical</td>
 					<td>2.69 GiB</td>
-					<td>585.82 MiB</td>
-					<td>2.12 GiB</td>
+					<td>373.13 MiB</td>
+					<td>2.33 GiB</td>
 					<td>
 			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 21%; "></div>
-				<div class="new_bar_text">21%</div>
+				<div class="new_bar_bg" style="width: 14%; "></div>
+				<div class="new_bar_text">14%</div>
 			</div>
 		</td>
 				</tr>
@@ -180,16 +180,16 @@
 					<td>eth0</td>
 					<td>Ethernet (PCI) (r8169)</td>
 					<td>10Mb/s</td>
-					<td>81.87 MiB</td>
-					<td>26.54 MiB</td>
+					<td>648 B</td>
+					<td>0 B</td>
 					<td class="net_up">Up</td>
 				</tr>
 				<tr>
 					<td>eth1</td>
 					<td>Ethernet (PCI) (r8169)</td>
 					<td>100Mb/s</td>
-					<td>26.63 MiB</td>
-					<td>93.74 MiB</td>
+					<td>3.37 MiB</td>
+					<td>11.92 MiB</td>
 					<td class="net_up">Up</td>
 				</tr>
 				<tr>
@@ -204,8 +204,8 @@
 					<td>lo</td>
 					<td>Loopback</td>
 					<td></td>
-					<td>1.85 MiB</td>
-					<td>1.85 MiB</td>
+					<td>83.62 KiB</td>
+					<td>83.62 KiB</td>
 					<td class="net_up">Up</td>
 				</tr>
 			</table>
@@ -343,8 +343,8 @@
 					<td>/dev/sda</td>
 					<td>ATA</td>
 					<td>Hitachi HDS72161</td>
-					<td>9,196</td>
-					<td>19,235</td>
+					<td>11,077</td>
+					<td>16,588</td>
 					<td>149.05 GiB</td>
 				</tr>
 				<tr>
@@ -433,8 +433,8 @@
 				</tr><tr><td>/dev/dm-0</td><td>/</td>
 					<td>ext4</td>
 					<td>144.39 GiB</td>
-					<td>10.16 GiB <span class="perc">(7%)</span></td>
-					<td>134.23 GiB <span class="perc">(93%)</span></td>
+					<td>10.22 GiB <span class="perc">(7%)</span></td>
+					<td>134.17 GiB <span class="perc">(93%)</span></td>
 					<td>
 						
 			<div class="new_bar_outer">
@@ -482,6 +482,32 @@
 			</div>
 		
 					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/hugetlb</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/net_cls,net_prio</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
 				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/devices</td>
 					<td>cgroup</td>
 					<td>0 B</td>
@@ -495,7 +521,20 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/perf_event</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/freezer</td>
+					<td>cgroup</td>
+					<td>0 B</td>
+					<td>?</td>
+					<td>0 B</td>
+					<td>
+						
+			<div class="new_bar_outer">
+				<div class="new_bar_bg" style="width: 0%; "></div>
+				<div class="new_bar_text">N/A</div>
+			</div>
+		
+					</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/memory</td>
 					<td>cgroup</td>
 					<td>0 B</td>
 					<td>?</td>
@@ -534,46 +573,7 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/freezer</td>
-					<td>cgroup</td>
-					<td>0 B</td>
-					<td>?</td>
-					<td>0 B</td>
-					<td>
-						
-			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 0%; "></div>
-				<div class="new_bar_text">N/A</div>
-			</div>
-		
-					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/net_cls,net_prio</td>
-					<td>cgroup</td>
-					<td>0 B</td>
-					<td>?</td>
-					<td>0 B</td>
-					<td>
-						
-			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 0%; "></div>
-				<div class="new_bar_text">N/A</div>
-			</div>
-		
-					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/memory</td>
-					<td>cgroup</td>
-					<td>0 B</td>
-					<td>?</td>
-					<td>0 B</td>
-					<td>
-						
-			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 0%; "></div>
-				<div class="new_bar_text">N/A</div>
-			</div>
-		
-					</td>
-				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/hugetlb</td>
+				</tr><tr><td>cgroup</td><td>/sys/fs/cgroup/perf_event</td>
 					<td>cgroup</td>
 					<td>0 B</td>
 					<td>?</td>
@@ -599,8 +599,8 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>hugetlbfs</td><td>/dev/hugepages</td>
-					<td>hugetlbfs</td>
+				</tr><tr><td>mqueue</td><td>/dev/mqueue</td>
+					<td>mqueue</td>
 					<td>0 B</td>
 					<td>?</td>
 					<td>0 B</td>
@@ -625,8 +625,8 @@
 			</div>
 		
 					</td>
-				</tr><tr><td>mqueue</td><td>/dev/mqueue</td>
-					<td>mqueue</td>
+				</tr><tr><td>hugetlbfs</td><td>/dev/hugepages</td>
+					<td>hugetlbfs</td>
 					<td>0 B</td>
 					<td>?</td>
 					<td>0 B</td>
@@ -641,13 +641,13 @@
 				</tr><tr><td>/dev/sda1</td><td>/boot</td>
 					<td>ext2</td>
 					<td>235.32 MiB</td>
-					<td>88.55 MiB <span class="perc">(38%)</span></td>
-					<td>146.78 MiB <span class="perc">(62%)</span></td>
+					<td>56.39 MiB <span class="perc">(24%)</span></td>
+					<td>178.93 MiB <span class="perc">(76%)</span></td>
 					<td>
 						
 			<div class="new_bar_outer">
-				<div class="new_bar_bg" style="width: 38%; "></div>
-				<div class="new_bar_text">38%</div>
+				<div class="new_bar_bg" style="width: 24%; "></div>
+				<div class="new_bar_text">24%</div>
 			</div>
 		
 					</td>
@@ -668,8 +668,8 @@
 		<tr class="alt">
 			<td colspan="3">Totals: </td>
 			<td>145.95 GiB</td>
-			<td>10.24 GiB</td>
-			<td>135.71 GiB</td>
+			<td>10.28 GiB</td>
+			<td>135.68 GiB</td>
 			<td>
 				
 			<div class="new_bar_outer">
@@ -682,13 +682,13 @@
 	</table>
 </div>
 <div id="foot">
-	Generated by <a href="https://github.com/jrgp/linfo"><em>Linfo</em></a> (2015-09-15) in 0.33 seconds.<br>
+	Generated by <a href="https://github.com/jrgp/linfo"><em>Linfo</em></a> (2015-09-15) in 0.11 seconds.<br>
 	<em>Linfo</em> &copy; 2010 &ndash; 2016
 	Joseph Gillotti &amp; friends. Source code licensed under GPL.
 </div>
 <div id="foot_time">
 	<br />
-	Generated on 03/07/16 03:35 PM (UTC)
+	Generated on 03/11/16 07:38 PM (UTC)
 </div>
 <script>Linfo.init()</script>
 </body>

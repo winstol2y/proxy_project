@@ -1,0 +1,19 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+<% @data_subnet_eth0.each_hash do |row_subnet| %>
+        address <%= row_subnet['router']%>
+        netmask <%= row_subnet['netmask']%>
+        network <%= row_subnet['subnet']%>
+        broadcast <%= row_subnet['broadcast']%>
+<% end %>
+auto eth1
+iface eth1 inet dhcp

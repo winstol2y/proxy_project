@@ -1,4 +1,7 @@
 <?php
+  require_once './session_login.inc.php';
+?>
+<?php
   $servername = "localhost";
   $username = "root";
   $password = "qwerty";
@@ -26,7 +29,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Proxy Web UI:DHCP Class 2</title>
+    <title>Proxy Web UI:User Class 2</title>
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +58,7 @@
                     
                     <div class="row">
                       <div class="col-sm-12">
-                        <h1 align="center">DHCP Class 2</h1> 
+                        <h1 align="center">User Class 2</h1> 
                       </div>
                     </div>
 
