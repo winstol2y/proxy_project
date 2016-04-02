@@ -2,25 +2,50 @@ option domain-name-servers <%= @domain_name_server%>;
 
 default-lease-time <%= @default%>;
 max-lease-time <%= @max%>;
-lease-file-name "/var/db/dhcpd/dhcpd.leases";
+authoritative;
+log-facility local7;
 
 <% @data_subnet.each_hash do |row_subnet| %>
 subnet <%= row_subnet['subnet']%> netmask <%= row_subnet['netmask']%> {
-        range <%= row_subnet['range1']%> <%= row_subnet['range2']%>;
 	option broadcast-address <%= row_subnet['broadcast']%>;
 	option routers <%= row_subnet['router']%>;
+
+	# Only Know client get this pool
+	pool {
+
+        	range <%= row_subnet['range1']%> <%= row_subnet['range2']%>;
+		max-lease-time 60;
+		deny unknown-clients;
+
+		host router_cisco {
+		        hardware ethernet 34:a8:4e:69:70:40; fixed-address 10.0.0.2;
+		}
+		host router_asus {
+		        hardware ethernet AC:9E:17:59:43:A8; fixed-address 10.0.0.3;
+		}
+		host router_white1 {
+		        hardware ethernet B0:B2:DC:5B:30:D8; fixed-address 10.0.0.4;
+		}
+		host oak_wifi {
+		        hardware ethernet b0:10:41:a2:48:b1;
+		}
+		host oak {
+		        hardware ethernet f8:a9:63:4c:ee:bd;
+		}
+		host dome {
+		        hardware ethernet f0:79:59:46:6c:c3; fixed-address 10.0.6.125;
+		}
+<% @data_dhcp.each_hash do |row1| -%>
+	host <%= row1['name']%> {
+	hardware ethernet <%= row1['hw']%>; fixed-address <%= row1['ip']%>;
+}
+		<%- end -%>
+		<% @data_class_wifi.each_hash do |row1| -%>
+		host <%= row1['id-card']%>_<%=row1['wifi_id']%> {
+		        hardware ethernet <%= row1['mac']%>; fixed-address <%= row1['ip']%>;
+		}
+		<%- end -%>
+	}
 }
 <% end %>
-<% @data_dhcp.each_hash do |row1| -%>
-host <%= row1['name']%> {
-	hardware ethernet <%= row1['hw']%>;
-	fixed-address <%= row1['ip']%>;
-}
-<%- end -%>
-<% @data_class_wifi.each_hash do |row1| -%>
-host <%= row1['wifi_id']%> {
-        hardware ethernet <%= row1['mac']%>;
-	fixed-address <%= row1['ip']%>;
-}
-<%- end -%>
 

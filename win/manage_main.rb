@@ -50,7 +50,6 @@ end
 ###################################################### block url ########################################################
 
 	
-	#file_time = con.query("SELECT time FROM block_url UNION SELECT time FROM block_url") # url data
 	file_time = con.query("SELECT `file_name`,`block_date_time` FROM block_url UNION SELECT `file_name`,`block_date_time` FROM block_url")
 	file_time.each_hash do |rows|
 		url = rows['file_name']

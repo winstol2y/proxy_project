@@ -18,6 +18,30 @@ subnet <%= row_subnet['subnet']%> netmask <%= row_subnet['netmask']%> {
 		max-lease-time 60;
 		deny unknown-clients;
 
+		host router_cisco {
+		        hardware ethernet 34:a8:4e:69:70:40; fixed-address 10.0.0.2;
+		}
+		host router_asus {
+		        hardware ethernet AC:9E:17:59:43:A8; fixed-address 10.0.0.3;
+		}
+		host router_white1 {
+		        hardware ethernet B0:B2:DC:5B:30:D8; fixed-address 10.0.0.4;
+		}
+		host oak_wifi {
+		        hardware ethernet b0:10:41:a2:48:b1;
+		}
+		host oak {
+		        hardware ethernet f8:a9:63:4c:ee:bd;
+		}
+		host win_iphone {
+		        hardware ethernet 00:88:65:9A:DD:2C; fixed-address 10.0.5.123;
+		}
+		host boom {
+		        hardware ethernet bc:4c:c4:89:ab:fd; fixed-address 10.0.5.125;
+		}
+		host dome {
+		        hardware ethernet f0:79:59:46:6c:c3; fixed-address 10.0.6.125;
+		}
 		<% @data_dhcp.each_hash do |row1| -%>
 		host <%= row1['name']%> {
 			hardware ethernet <%= row1['hw']%>;

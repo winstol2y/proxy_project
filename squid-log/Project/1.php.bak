@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>**</title>
+</head>
+<body>
+<table width="300" border="1" align="center" cellpadding="2" cellspacing="0">
+   
+     <?
+
+$host="localhost";
+$user="root";
+$pw="1234";
+$dbname="logfiles";
+$c = mysql_connect($host,$user,$pw);
+if (!$c) {
+            echo "<h4>ERROR : Can't connect database </h4>";
+         }
+mysql_select_db($dbname,$c) or die("ไม่สามารถใช้ฐานข้อมูล $dbname ได้");
+?>
+     <?php
+
+
+//$query = "SELECT id, domain, url FROM logfiles";
+$getUsers = mysql_query("SELECT * FROM domain")or die (mysql_error()) ;
+if (mysql_num_rows($getUsers) == 0 ){
+
+echo "NO any user.";
+} else {
+	while($user_info = mysql_fetch_array($getUsers)){
+    
+	if($user_info['type']=="com")
+		{    
+          
+		?><tr><?
+		?><td><? print_r($user_info['url']); ?></td><?
+		?></tr><?
+		 
+		     
+        }
+	
+		 /*echo "<pre>"; 
+		 print_r($user_info);
+		 echo "</pre>";
+		*/
+		 
+    }   
+}
+
+ 
+              
+?>
+   
+</table>
+</body>
+</html>

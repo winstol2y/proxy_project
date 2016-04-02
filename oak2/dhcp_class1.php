@@ -187,10 +187,6 @@
                   </div>
 
                 </div><!--/Content-->
-
-                <?php include ("./underbar.php");?>
-
-                <hr>
               </div><!-- /col-12 -->
             </div><!-- /padding -->
           </div><!-- /Main Content -->

@@ -1,0 +1,13 @@
+<?
+	$host="localhost";
+	$user="root";
+	$pass="1234";
+	$dbname="logfiles";
+	$tbname = "log";
+	$connect=mysql_connect($host,$user,$pass)or die('Error connecting to mysql');  
+
+	if(!$connect) {
+		echo "ไม่สามารถเชื่อมต่อฐานข้อมูลได้".mysql_error();
+		die();
+	}
+?>

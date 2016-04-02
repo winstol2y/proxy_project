@@ -25,6 +25,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <style type="text/css">
+    .dropdownHeight option {
+        height: 30px;
+    }
+    #dropdownWidth {
+        width: 100%;
+    }
+    .sameline {
+      display:block;
+    }
+    </style>
   </head>
 
   <body>
@@ -55,31 +66,43 @@
 
                     <div class="row">
                       <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">Range of IP Address :</h4> 
+                        <h4 align="right">User Class :</h4> 
                       </div>
                       <div class="col-sm-3">
-                        <input class="form-control" name="macAddress_add" type="text" placeholder=""/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">Total/Client :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="name_add" type="text" placeholder=""/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">Class :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="ip_add" type="text" placeholder="" />
+                        <select class="dropdownHeight" name="user_c" onchange="ip_range();">
+                          <option value="1">1 (10.0.0.2 - 10.9.255.254)</option>
+                          <option value="2">2 (10.10.0.2 - 10.19.255.254)</option>
+                          <option value="3">3 (10.20.0.2 - 10.29.255.254)</option>
+                          <option value="4">4 (10.30.0.2 - 10.39.255.254)</option>
+                          <option value="5">Wi-Fi (10.40.0.2 - 10.49.255.254)</option>
+                        </select>
                       </div>
                     </div>
                     
+                    <div class="row">
+                      <div class="col-sm-2 col-sm-offset-3">
+                        <h4 align="right">Squid Class :</h4> 
+                      </div>
+                      <div class="col-sm-3">
+                        <select class="dropdownHeight" id="dropdownWidth" name="squid_c">
+                          <option value="1">1</option>
+                          <option value="2" selected="selected">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-sm-2 col-sm-offset-3">
+                        <h4 align="right">Bandwidth</h4> 
+                      </div>
+                      <div class="col-sm-3">
+                        <input class="form-control" name="bw" type="text" placeholder="Ex : 128000/128000 8000/8000"/>
+                      </div>
+                    </div>
+
                     <div class="row">
                       <div class="col-sm-1 col-sm-offset-5">
                           <div class="col-sm-1 col-sm-offset-3">
@@ -87,10 +110,9 @@
                           </div>
                       </div>
                     </div>
+
                   </form>
-                  
-                  <br>
-                  
+
                                     
                   <div class="row">
                     <div class="col-sm-12">
@@ -109,7 +131,6 @@
                               <th>Class</th>
                               <th>Range</th>
                               <th>Bandwidth</th>
-                              <th>Delete</th>
                             </tr>
                             <?php
                               function table($data){
@@ -121,11 +142,10 @@
                               {
                                 echo '<tr>';
                                 table("$i");
-                                table($my_row1["pool"]);
+                                table($my_row1["user_class"]);
                                 table($my_row1["class"]);
                                 table($my_row1["range"]);
                                 table($my_row1["bandwidth"]);
-                                table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/squid_delete_bw.php?mac='.trim($my_row1["pool"]).'>Delete</button>');
                                 $i++;
                                 echo '</tr>';
                               }
@@ -140,10 +160,6 @@
                   </div>
 
                 </div><!--/Content-->
-
-                <?php include ("./underbar.php");?>
-
-                <hr>
               </div><!-- /col-12 -->
             </div><!-- /padding -->
           </div><!-- /Main Content -->

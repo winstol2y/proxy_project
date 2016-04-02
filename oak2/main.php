@@ -294,10 +294,6 @@
                     </div>
                   </div><!-- /Contern Right -->
                 </div><!--/Content-->
-                  
-                <?php include ("./underbar.php");?>
-
-                <hr>
               </div><!-- /col-9 -->
             </div><!-- /padding -->
           </div><!-- /Main Content -->

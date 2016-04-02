@@ -1,0 +1,614 @@
+<?
+$host="localhost";
+$user="root";
+$pw="root";
+$dbname="logfiles";
+$c = mysql_connect($host,$user,$pw);
+if (!$c) {
+            echo "<h4>ERROR : Can't connect database </h4>";
+         }
+mysql_select_db($dbname,$c) or die("ไม่สามารถใช้ฐานข้อมูล $dbname ได้");
+$getUsers = mysql_query('Select *,count(domain) AS count from report where domain != "" GROUP BY domain  ORDER BY count DESC')or die (mysql_error()) ;
+$user_info = mysql_fetch_array($getUsers)
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="template3.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SQUID</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+body {
+	background-attachment:fixed;
+	background-image: url();
+	background-repeat: repeat-x;
+	background-color: #333;
+}
+-->
+</style>
+<script src="SpryMenuBar.js" type="text/javascript"></script>
+<link href="SpryMenuBarVertical.css" rel="stylesheet" type="text/css" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="806" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2"><img src="template_06.gif" width="1024" height="78" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#4D9473">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="124" rowspan="2" align="left" valign="top" bgcolor="#4C4C4C"><!-- InstanceBeginEditable name="Menu" -->
+      <ul id="MenuBar1" class="MenuBarVertical">
+        <li><a href="#">MAIN</a></li><li><a href="#" class="MenuBarItemSubmenu">Domain</a>
+          <ul>
+<?php 
+do {
+?>
+<li><a href="domain.php?domain_n=<? echo $user_info['domain']; ?>">
+
+<?php echo $user_info['domain']; ?></a>
+
+<?php
+	  } while ($user_info = mysql_fetch_assoc($getUsers))
+?>
+          </ul>
+        </li>
+        <li><a href="#" class="MenuBarItemSubmenu">Graph</a>
+		 <ul>
+            <li><a href="graph1.php">domain graph</a></li>
+            <li><a href="graph3.php">traffic graph 1</a></li>
+            <li><a href="graph4.php">traffic graph 2</a></li>
+          </ul>
+		</li>
+		<li><a href="#" class="MenuBarItemSubmenu">Search</a>
+		  <ul>
+			<li><a href="searchurl.php">URL</a></li>
+            <li><a href="searchip.php">IP</a></li>
+			<li><a href="searchdate-date.php">Date To Date</a></li>
+			<li><a href="searchdate&time.php">Date & Time</a></li>
+		    </ul>   
+       </li>
+    </ul>
+    <!-- InstanceEndEditable --></td>
+    <td width="900" height="545" align="left" valign="top" bgcolor="#FFFFFF"><!-- InstanceBeginEditable name="maincontent" -->
+   
+<html>
+<head>
+    <title>***</title>
+    
+
+</head>
+<body>
+<?//----------------------------------------------------------------------------------------?>
+<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.7.2.custom.css">
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	// ???????? jquery
+	$("#dateInput1").datepicker({ dateFormat: 'yy/mm'});
+	         });
+</script>
+
+<style type="text/css">
+.ui-datepicker{
+	width:150px;
+	font-family:tahoma;
+	font-size:11px;
+	text-align:center;
+             }
+</style>
+
+<?//----------------------------------------------------------------------------------------?>
+<form name="frmSearch" method="get" action="<?=$_SERVER['SCRIPT_NAME'];?>">
+	    Date<input type="text" name="dateInput1" id="dateInput1" value="<?=$_GET["dateInput1"];?>" autocomplete="off" />      
+        <input name="submit" type="submit" value="Search" />
+  </form>
+
+
+<?
+
+$host="localhost";
+$user="root";
+$pw="root";
+$dbname="logfiles";
+$c = mysql_connect($host,$user,$pw);
+if (!$c) {
+            echo "<h4>ERROR : Can't connect database </h4>";
+         }
+mysql_select_db($dbname,$c) or die("?? $dbname ");
+?>
+
+<?
+$dateInput1 = $_GET["dateInput1"];
+
+$numbyte1 = array();
+$numbyte2 = array();
+$numbyte3 = array();
+$numbyte4 = array();
+$numbyte5 = array();
+$numbyte6 = array();
+$numbyte7 = array();
+$numbyte8 = array();
+$numbyte9 = array();
+$numbyte10 = array();
+$numbyte11 = array();
+$numbyte12 = array();
+$numbyte13 = array();
+$numbyte14 = array();
+$numbyte15 = array();
+$numbyte16 = array();
+$numbyte17 = array();
+$numbyte18 = array();
+$numbyte19 = array();
+$numbyte20 = array();
+$numbyte21 = array();
+$numbyte22 = array();
+$numbyte23 = array();
+$numbyte24 = array();
+$numbyte25 = array();
+$numbyte26 = array();
+$numbyte27 = array();
+$numbyte28 = array();
+$numbyte29 = array();
+$numbyte30 = array();
+$numbyte31 = array();
+
+
+
+$s1 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%01%') ")or die('Error conndting to mysql');
+$s2 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%02%') ")or die('Error conndting to mysql');
+$s3 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%03%') ")or die('Error conndting to mysql');
+$s4 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%04%') ")or die('Error conndting to mysql');
+$s5 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%05%') ")or die('Error conndting to mysql');
+$s6 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%06%') ")or die('Error conndting to mysql');
+$s7 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%07%') ")or die('Error conndting to mysql');
+$s8 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%08%') ")or die('Error conndting to mysql');
+$s9 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%09%') ")or die('Error conndting to mysql');
+$s10 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%10%') ")or die('Error conndting to mysql');
+$s11 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%11%') ")or die('Error conndting to mysql');
+$s12 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%12%') ")or die('Error conndting to mysql');
+$s13 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%13%') ")or die('Error conndting to mysql');
+$s14 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%14%') ")or die('Error conndting to mysql');
+$s15 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%15%') ")or die('Error conndting to mysql');
+$s16 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%16%') ")or die('Error conndting to mysql');
+$s17 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%17%') ")or die('Error conndting to mysql');
+$s18 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%18%') ")or die('Error conndting to mysql');
+$s19 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%19%') ")or die('Error conndting to mysql');
+$s20 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%20%') ")or die('Error conndting to mysql');
+$s21 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%21%') ")or die('Error conndting to mysql');
+$s22 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%22%') ")or die('Error conndting to mysql');
+$s23 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%23') ")or die('Error conndting to mysql');
+$s24 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%24%') ")or die('Error conndting to mysql');
+$s25 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%25%') ")or die('Error conndting to mysql');
+$s26 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%26%') ")or die('Error conndting to mysql');
+$s27 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%27%') ")or die('Error conndting to mysql');
+$s28 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%28%') ")or die('Error conndting to mysql');
+$s29 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%29%') ")or die('Error conndting to mysql');
+$s30 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%30%') ")or die('Error conndting to mysql');
+$s31 = mysql_db_query($dbname,"Select sum(bytes) AS sum from  report  WHERE (date LIKE '".$dateInput1."%') and (day LIKE '%31%') ")or die('Error conndting to mysql');
+
+
+while($result1 = mysql_fetch_array($s1))
+						{
+				   array_push($numbyte1,$result1['sum']);
+				   $byte1 = ($numbyte1[0]/1024);
+                   $byte1 = number_format($byte1,2,'.','');
+				        }
+
+ while($result2 = mysql_fetch_array($s2))
+						{
+				   array_push($numbyte2,$result2['sum']);
+				   $byte2 = ($numbyte2[0]/1024);
+                   $byte2 = number_format($byte2,2,'.','');
+				        }
+
+ while($result3 = mysql_fetch_array($s3))
+						{
+				   array_push($numbyte3,$result3['sum']);
+				   $byte3 = ($numbyte3[0]/1024);
+                   $byte3 = number_format($byte3,2,'.','');
+				        }
+
+ while($result4 = mysql_fetch_array($s4))
+						{
+				   array_push($numbyte4,$result4['sum']);
+				   $byte4 = ($numbyte4[0]/1024);
+                   $byte4 = number_format($byte4,2,'.','');
+				        }
+
+ while($result5 = mysql_fetch_array($s5))
+						{
+				   array_push($numbyte5,$result5['sum']);
+				   $byte5 = ($numbyte5[0]/1024);
+                   $byte5 = number_format($byte5,2,'.','');
+				        }
+
+ while($result6 = mysql_fetch_array($s6))
+						{
+				   array_push($numbyte6,$result6['sum']);
+				   $byte6 = ($numbyte6[0]/1024);
+                   $byte6 = number_format($byte6,2,'.','');
+				        }
+
+ while($result7 = mysql_fetch_array($s7))
+						{
+				   array_push($numbyte7,$result7['sum']);
+				   $byte7 = ($numbyte7[0]/1024);
+                   $byte7 = number_format($byte7,2,'.','');
+				        }
+
+ while($result8 = mysql_fetch_array($s8))
+						{
+				   array_push($numbyte8,$result8['sum']);
+				   $byte8 = ($numbyte8[0]/1024);
+                   $byte8 = number_format($byte8,2,'.','');
+				        }
+						
+ while($result9 = mysql_fetch_array($s9))
+						{
+				   array_push($numbyte9,$result9['sum']);
+				   $byte9 = ($numbyte9[0]/1024);
+                   $byte9 = number_format($byte9,2,'.','');
+				        }
+
+ while($result10 = mysql_fetch_array($s10))
+						{
+				   array_push($numbyte10,$result10['sum']);
+				   $byte10 = ($numbyte10[0]/1024);
+                   $byte10 = number_format($byte10,2,'.','');
+				        }
+
+ while($result11 = mysql_fetch_array($s11))
+						{
+				   array_push($numbyte11,$result11['sum']);
+				   $byte11 = ($numbyte11[0]/1024);
+                   $byte11 = number_format($byte11,2,'.','');
+				        }
+
+ while($result12 = mysql_fetch_array($s12))
+						{
+				   array_push($numbyte12,$result12['sum']);
+				   $byte12 = ($numbyte12[0]/1024);
+                   $byte12 = number_format($byte12,2,'.','');
+				        }
+
+ while($result13 = mysql_fetch_array($s13))
+						{
+				   array_push($numbyte13,$result13['sum']);
+				   $byte13 = ($numbyte13[0]/1024);
+                   $byte13 = number_format($byte13,2,'.','');
+				        }
+
+ while($result14 = mysql_fetch_array($s14))
+						{
+				   array_push($numbyte14,$result14['sum']);
+				   $byte14 = ($numbyte14[0]/1024);
+                   $byte14 = number_format($byte14,2,'.','');
+				        }
+
+ while($result15 = mysql_fetch_array($s15))
+						{
+				   array_push($numbyte15,$result15['sum']);
+				   $byte15 = ($numbyte15[0]/1024);
+                   $byte15 = number_format($byte15,2,'.','');
+				        }
+
+ while($result16 = mysql_fetch_array($s16))
+						{
+				   array_push($numbyte16,$result16['sum']);
+				   $byte16 = ($numbyte16[0]/1024);
+                   $byte16 = number_format($byte16,2,'.','');
+				        }
+
+ while($result17 = mysql_fetch_array($s17))
+						{
+				   array_push($numbyte17,$result17['sum']);
+				   $byte17 = ($numbyte17[0]/1024);
+                   $byte17 = number_format($byte17,2,'.','');
+				        }
+
+ while($result18 = mysql_fetch_array($s18))
+						{
+				   array_push($numbyte18,$result18['sum']);
+				   $byte18 = ($numbyte18[0]/1024);
+                   $byte18 = number_format($byte18,2,'.','');
+				        }
+
+ while($result19 = mysql_fetch_array($s19))
+						{
+				   array_push($numbyte19,$result19['sum']);
+				   $byte19 = ($numbyte19[0]/1024);
+                   $byte19 = number_format($byte19,2,'.','');
+				        }
+
+ while($result20 = mysql_fetch_array($s20))
+						{
+				   array_push($numbyte20,$result20['sum']);
+				   $byte20 = ($numbyte20[0]/1024);
+                   $byte20 = number_format($byte20,2,'.','');
+				        }
+
+ while($result21 = mysql_fetch_array($s21))
+						{
+				   array_push($numbyte21,$result21['sum']);
+				   $byte21 = ($numbyte21[0]/1024);
+                   $byte21 = number_format($byte21,2,'.','');
+				        }
+
+ while($result22 = mysql_fetch_array($s22))
+						{
+				   array_push($numbyte22,$result22['sum']);
+				   $byte22 = ($numbyte22[0]/1024);
+                   $byte22 = number_format($byte22,2,'.','');
+				        }
+
+ while($result23 = mysql_fetch_array($s23))
+						{
+				   array_push($numbyte23,$result23['sum']);
+				   $byte23 = ($numbyte23[0]/1024);
+                   $byte23 = number_format($byte23,2,'.','');
+				        }
+
+ while($result24 = mysql_fetch_array($s24))
+						{
+				   array_push($numbyte24,$result24['sum']);
+				   $byte24 = ($numbyte24[0]/1024);
+                   $byte24 = number_format($byte24,2,'.','');
+				        }
+
+ while($result25 = mysql_fetch_array($s25))
+						{
+				   array_push($numbyte25,$result25['sum']);
+				   $byte25 = ($numbyte25[0]/1024);
+                   $byte25 = number_format($byte25,2,'.','');
+				        }
+
+ while($result26 = mysql_fetch_array($s26))
+						{
+				   array_push($numbyte26,$result26['sum']);
+				   $byte26 = ($numbyte26[0]/1024);
+                   $byte26 = number_format($byte26,2,'.','');
+				        }
+
+ while($result27 = mysql_fetch_array($s27))
+						{
+				   array_push($numbyte27,$result27['sum']);
+				   $byte27 = ($numbyte27[0]/1024);
+                   $byte27 = number_format($byte27,2,'.','');
+				        }
+
+ while($result28 = mysql_fetch_array($s28))
+						{
+				   array_push($numbyte28,$result28['sum']);
+				   $byte28 = ($numbyte28[0]/1024);
+                   $byte28 = number_format($byte28,2,'.','');
+				        }
+
+ while($result29 = mysql_fetch_array($s29))
+						{
+				   array_push($numbyte29,$result29['sum']);
+				   $byte29 = ($numbyte29[0]/1024);
+                   $byte29 = number_format($byte29,2,'.','');
+				        }
+
+ while($result30 = mysql_fetch_array($s30))
+						{
+				   array_push($numbyte30,$result30['sum']);
+				   $byte30 = ($numbyte30[0]/1024);
+                   $byte30 = number_format($byte30,2,'.','');
+				        }
+
+ while($result31 = mysql_fetch_array($s31))
+						{
+				   array_push($numbyte31,$result31['sum']);
+				   $byte31 = ($numbyte31[0]/1024);
+                   $byte31 = number_format($byte31,2,'.','');
+				        }
+if($dateInput1 != NULL)
+	{
+?>
+KB
+<script src="js/amcharts.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var lineChartData = [{
+    date: "01",
+    value: <?=$byte1?>},
+{
+    date: "02",
+    value: <?=$byte2?>},
+{
+    date: "03",
+    value: <?=$byte3?>},
+{
+    date: "04",
+    value: <?=$byte4?>},
+{
+    date: "05",
+    value: <?=$byte5?>},
+{
+    date: "06",
+    value: <?=$byte6?>},
+{
+    date: "07",
+    value: <?=$byte7?>},
+{
+    date: "08",
+    value: <?=$byte8?>},
+{
+    date: "09",
+    value: <?=$byte9?>},
+{
+    date: "10",
+    value: <?=$byte10?>},
+{
+    date: "11",
+    value: <?=$byte11?>},
+{
+    date: "12",
+    value: <?=$byte12?>},
+{
+    date: "13",
+    value: <?=$byte13?>},
+{
+    date: "14",
+    value: <?=$byte14?>},
+{
+    date: "15",
+    value: <?=$byte15?>},
+{
+    date: "16",
+    value: <?=$byte16?>},
+{
+    date: "17",
+    value: <?=$byte17?>},
+{
+    date: "18",
+    value: <?=$byte18?>},
+{
+    date: "19",
+    value: <?=$byte19?>},
+{
+    date: "20",
+    value: <?=$byte20?>},
+{
+    date: "21",
+    value: <?=$byte21?>},
+{
+    date: "22",
+    value: <?=$byte22?>},
+{
+    date: "23",
+    value: <?=$byte23?>},
+{
+    date: "24",
+    value: <?=$byte24?>},
+{
+    date: "25",
+    value: <?=$byte25?>},
+{
+    date: "26",
+    value: <?=$byte26?>},
+{
+    date: "27",
+    value: <?=$byte27?>},
+{
+    date: "28",
+    value: <?=$byte28?>},
+{
+    date: "29",
+    value: <?=$byte29?>},
+{
+    date: "30",
+    value: <?=$byte30?>},
+{
+    date: "31",
+    value: <?=$byte31?>}];
+
+AmCharts.ready(function() {
+    var chart = new AmCharts.AmSerialChart();
+    chart.dataProvider = lineChartData;
+    chart.pathToImages = "http://www.amcharts.com/lib/images/";
+    chart.categoryField = "date";
+
+    // sometimes we need to set margins manually
+    // autoMargins should be set to false in order chart to use custom margin values
+    chart.autoMargins = false;
+    chart.marginRight = 0;
+    chart.marginLeft = 0;
+    chart.marginBottom = 22;
+    chart.marginTop = 0;
+
+    // AXES
+    // category                
+    var categoryAxis = chart.categoryAxis;
+    categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
+    categoryAxis.gridAlpha = 0;
+    categoryAxis.tickLength = 0;
+    categoryAxis.axisAlpha = 0;
+	categoryAxis.startOnAxis = true;
+	
+
+    // value
+    var valueAxis = new AmCharts.ValueAxis();
+    valueAxis.dashLength = 4;
+    valueAxis.axisAlpha = 5;
+    chart.addValueAxis(valueAxis);
+	
+
+    // GRAPH
+    var graph = new AmCharts.AmGraph();
+    graph.type = "line";
+    graph.valueField = "value";
+    graph.lineColor = "#D8E63C";
+    graph.customBullet = "http://www.amcharts.com/lib/images/star.gif"; // bullet for all data points
+    graph.bulletSize = 14; // bullet image should be a rectangle (width = height)
+    graph.customBulletField = "customBullet"; // this will make the graph to display custom bullet (red star)
+    chart.addGraph(graph);
+
+    // CURSOR
+    var chartCursor = new AmCharts.ChartCursor();
+    chart.addChartCursor(chartCursor);
+
+    // WRITE
+    chart.write("chartdiv");
+});
+
+
+</script>
+<div id="chartdiv" style="width: 100%; height: 362px;"></div>
+
+
+<center>Date</center>
+
+
+
+<?php
+
+
+
+
+
+
+
+$sumbyte = ($byte1+$byte2+$byte3+$byte4+$byte5+$byte6+$byte7+$byte8+$byte9+$byte10+$byte11+$byte12+$byte13+$byte14+$byte15+$byte16+$byte17+$byte18+$byte19+$byte20+$byte21+$byte22+$byte23+$byte24+$byte25+$byte26+$byte27+$byte28+$byte29+$byte30+$byte31)/30;
+
+$max = max($byte1,$byte2,$byte3,$byte4,$byte5,$byte6,$byte7,$byte8,$byte9,$byte10,$byte11,$byte12,$byte13,$byte14,$byte15,$byte16,$byte17,$byte18,$byte19,$byte20,$byte21,$byte22,$byte23,$byte24,$byte25,$byte26,$byte27,$byte28,$byte29,$byte30,$byte31);
+
+$min = min($byte1,$byte2,$byte3,$byte4,$byte5,$byte6,$byte7,$byte8,$byte9,$byte10,$byte11,$byte12,$byte13,$byte14,$byte15,$byte16,$byte17,$byte18,$byte19,$byte20,$byte21,$byte22,$byte23,$byte24,$byte25,$byte26,$byte27,$byte28,$byte29,$byte30,$byte31);
+
+ echo "Max : ",number_format($max,2,'.','')," KB";
+
+ ?><br></br><?
+ 
+ echo "Avg : ",number_format($sumbyte,2,'.','')," KB";
+
+?><br></br><?
+
+ echo "Min : ",number_format($min,2,'.','')," KB";
+
+
+} 
+
+?>
+
+<!-- InstanceEndEditable --></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+</table>
+<script type="text/javascript">
+<!--
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"../SpryAssets/SpryMenuBarRightHover.gif"});
+//-->
+</script>
+</body>
+<!-- InstanceEnd --></html>

@@ -54,75 +54,6 @@
             <div class="padding">
               <div class="full col-sm-12">
                 <div class="row"><!-- Content -->
-                  <form action="dhcp_class_wifi_add.php" method="post" name="frm_data">
-                    
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <h1 align="center">WiFi Class</h1> 
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">Name :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="name" type="text" placeholder="Name"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">Surame :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="surName" type="text" placeholder="Surname"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">ID Card :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="people_id" type="text" placeholder="ID Card number"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">E-Mail :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="email" type="text" placeholder="E-Mail"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">MAC Address :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="mac" type="text" placeholder="MAC Address"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-2 col-sm-offset-3">
-                        <h4 align="right">Tel. :</h4> 
-                      </div>
-                      <div class="col-sm-3">
-                        <input class="form-control" name="tel" type="text" placeholder="Telephone Number"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-1 col-sm-offset-5">
-                          <div class="col-sm-1 col-sm-offset-3">
-                            <input class="btn btn-primary" type="submit" value="submit">
-                          </div>
-                      </div>
-                    </div>
-                  </form>
                   
                   <br>
                                     
@@ -180,10 +111,6 @@
                   </div>
 
                 </div><!--/Content-->
-
-                <?php include ("./underbar.php");?>
-
-                <hr>
               </div><!-- /col-12 -->
             </div><!-- /padding -->
           </div><!-- /Main Content -->

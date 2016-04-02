@@ -1,6 +1,8 @@
 <?php
   session_start();
-  include_once ('function.inc.php');
+  //include_once ('function.inc.php');
+  include_once ('m/m.connect.inc.php');
+  include_once ('m/m.member.inc.php');
   if (isset($_POST['submit_B']) && $_POST['submit_B'] == "submit") 
   {
     $user=isset($_POST['username']) ? $_POST['username'] : "";

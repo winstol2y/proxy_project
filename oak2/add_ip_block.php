@@ -17,17 +17,29 @@
 			$days = $days.$day;
 		}
 	}
-	$time_start = $_POST["hour_start"].":".$_POST["min_start"];
-	$time_end = $_POST["hour_end"].":".$_POST["min_end"];
-	$check_time_start = (int)($_POST["hour_start"].$_POST["min_start"]);
-	$check_time_end = (int)($_POST["hour_end"].$_POST["min_end"]);
 
+	if ($_POST["timeR"] == "00:00-23:59") 
+	{
+		$time_start = "00:00";
+		$time_end = "23:59";
+		$check_time_start = (int)(0000);
+		$check_time_end = (int)(2359);
+	}
+	else
+	{
+		$time_start = $_POST["hour_start"].":".$_POST["min_start"];
+		$time_end = $_POST["hour_end"].":".$_POST["min_end"];
+		$check_time_start = (int)($_POST["hour_start"].$_POST["min_start"]);
+		$check_time_end = (int)($_POST["hour_end"].$_POST["min_end"]);
+	}
 	$texttoalert = "";
 	$statusQuery = TRUE;
 	$statusQuery2 = TRUE;
 	$statusQuery3 = TRUE;
 	$statusQuery4 = TRUE;
 	$statusQuery5 = TRUE;
+	$checkQuery = TRUE;
+	$porttoDB = "";
 
 	$servername = "localhost";
 	$username = "root";
@@ -46,6 +58,24 @@
 	{
 		$statusQuery2 = FALSE;
 		$texttoalert = $texttoalert.'Check IP \n';
+	}
+	else
+	{
+		$a=fopen("ip_check.temp", "w");
+		fwrite($a,$_POST["ip_add"]);
+		fclose($a);
+		$checkSpace = shell_exec("grep -c ' ' /var/www/html/oak2/ip_check.temp"); //count line is have space
+		if($checkSpace > 0)
+		{
+			$statusQuery4 = FALSE;
+			$texttoalert = $texttoalert.'IP can\'n have space ';
+		}
+		$check_dot_char = preg_match('/^[0-9.]+$/', $_POST["ip_add"]);
+		if(!$check_dot_char)
+		{
+			$statusQuery5 = FALSE;
+			$texttoalert = $texttoalert.'IP can have only number and dot ';
+		}
 	}
 	if(($check_time_end < $check_time_start) )
 	{
@@ -69,31 +99,22 @@
 		
 		$filenametoDB = $days."_".$time_name;
 		$blockdatetoDB = $days." ".$timetoDB;
-
-		$a=fopen("ip_check.temp", "w");
-		fwrite($a,$_POST["ip_add"]);
-		fclose($a);
-		$result = shell_exec("grep -c ' ' /var/www/html/oak2/ip_check.temp"); //count line is have space
-		if($result > 0)
-		{
-			$statusQuery4 = FALSE;
-			$texttoalert = $texttoalert.'IP can\'n have space ';
-		}
 	}
-	if($statusQuery && $statusQuery2 && $statusQuery3 && $statusQuery4)
-	{
+
+	if($statusQuery && $statusQuery2 && $statusQuery3 && $statusQuery4 && $statusQuery5)
+	{	
 		$query_add = "INSERT INTO `block`.`block_ip` (`name` , `ip` , `time`,`day`,`file_name`,`block_date_time`) VALUES ('".$_POST["name_add"]."','".$_POST["ip_add"]."','".$timetoDB."','".$days."','".$filenametoDB."','".$blockdatetoDB."')";
 		$query_DB = mysql_query($query_add);
-		if (!$query_DB) 
+		if(!$query_DB)
 		{
-			$texttoalert = die(mysql_error());
-			alertBox($texttoalert);
+			$checkQuery = FALSE;
+			$texttoalert =  $texttoalert.die(mysql_error()).'\n';
 		}
 		else
 		{
 			mysql_close($con);
-			//shell_exec("/var/www/html/win/manage_squid.rb");
-			//shell_exec('/var/www/html/win/restart_service_squid.sh');
+			//shell_exec("/var/www/html/oak2/manage_squid.rb");
+			//shell_exec('/var/www/html/oak2/restart_service_squid.sh');
 			header('Location: ./ip_block.php');
 		}
 	}

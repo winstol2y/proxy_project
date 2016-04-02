@@ -158,12 +158,25 @@
 		}
 	}
 
+	$query_range = 'SELECT * FROM `class_range` WHERE `class` = 5';
+  	$result_range = mysql_query($query_range);
+  	while($my_range=mysql_fetch_array($result_range))
+  	{
+    	$ip_s =  $my_range["ip_start"];
+	}
+
 	$query_all = 'SELECT * FROM `class_wifi` ORDER BY `wifi_id` DESC';
   	$result_all = mysql_query($query_all) or die(mysql_error());
-
   	$allD=mysql_fetch_assoc($result_all);
-  
-  	$ipDBLong = ip2long($allD["ip"]);
+
+	$ipFDB = $allD["ip"];
+
+	if ($ipFDB == NULL)
+	{
+		$ipFDB = $ip_s;
+	}
+
+  	$ipDBLong = ip2long($ipFDB);
   	$ipUPDB = long2ip($ipDBLong+1);
 	
   	if(!empty($_POST["tel"]))
@@ -202,7 +215,6 @@
 		else
 		{			
 			shell_exec("/var/www/html/oak2/manage_dhcp.rb");
-			shell_exec('/var/www/html/oak2/restart_service_dhcp.sh');
 			mysql_close($con);
 			header('Location: WiFi_Register.php');
 		}

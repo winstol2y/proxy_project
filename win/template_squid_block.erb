@@ -48,12 +48,16 @@ refresh_pattern (Release|Packages(.gz)*)$      0       20%     2880
 #refresh_pattern (\.deb|\.udeb)$   129600 100% 129600
 refresh_pattern .               0       20%     4320
 
+acl fileLimitDownload url_regex -i ftp http https .mp3 .mp4 .iso .wav .wma .dat .cda .wm .mid .midi .dat google youtube mediafire .rar .zip 
+
 delay_pools <%= @data_sum_pool.num_rows -%> 
 
 <% @data_delay_pool.each_hash do |row_delay_pool| -%>
 acl bw_users_<%= row_delay_pool['pool']%> src <%= row_delay_pool['range']%>
+
 delay_class <%= row_delay_pool['pool']%> <%= row_delay_pool['class']%> 
 delay_parameters <%= row_delay_pool['pool']%> <%= row_delay_pool['bandwidth']%> 
-delay_access <%= row_delay_pool['pool']%> allow bw_users_<%= row_delay_pool['pool']%> 
+delay_access <%= row_delay_pool['pool']%> allow bw_users_<%= row_delay_pool['pool']%> fileLimitDownload
+delay_access <%= row_delay_pool['pool']%> deny all
 
 <%- end -%>

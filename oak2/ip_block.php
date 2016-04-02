@@ -25,6 +25,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <style type="text/css">
+    .dropdownHeight option {
+        height: 30px;
+    }
+    .sameline {
+      display:block;
+    }
+    </style>
   </head>
 
   <body>
@@ -75,11 +83,15 @@
                       <div class="col-sm-2 col-sm-offset-3">
                         <h4 align="right">Block Time :</h4> 
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-4">
                         <table>
                           <tr>
                             <td>
-                              <select class="dropdownHeight" name="hour_start">
+                              <input type="radio" name="timeR" id="alltime" onchange="setTime();" value="00:00-23:59" checked="checked"/>AllTime&nbsp;
+                              <input type="radio" name="timeR" id="sometime" onchange="setTime();"/>SomeTime&nbsp;
+                            </td>
+                            <td>
+                              <select class="dropdownHeight" name="hour_start" id="hour_start" disabled="disabled" >
                                 <option value="00">00</option><option value="01">01</option><option value="02">02</option>
                                 <option value="03">03</option><option value="04">04</option><option value="05">05</option>
                                 <option value="06">06</option><option value="07">07</option><option value="08">08</option>
@@ -94,7 +106,7 @@
                               <h4> : </h4>
                             </td>
                             <td>
-                              <select class="dropdownHeight" name="min_start">
+                              <select class="dropdownHeight" name="min_start" id="min_start" disabled="disabled" >
                                 <option value="00">00</option><option value="01">01</option><option value="02">02</option>
                                 <option value="03">03</option><option value="04">04</option><option value="05">05</option>
                                 <option value="06">06</option><option value="07">07</option><option value="08">08</option>
@@ -121,7 +133,7 @@
                               <h4> - </h4>
                             </td>
                             <td>
-                              <select class="dropdownHeight" name="hour_end">
+                              <select class="dropdownHeight" name="hour_end" id="hour_end" disabled="disabled" >
                                 <option value="00">00</option><option value="01">01</option><option value="02">02</option>
                                 <option value="03">03</option><option value="04">04</option><option value="05">05</option>
                                 <option value="06">06</option><option value="07">07</option><option value="08">08</option>
@@ -136,7 +148,7 @@
                               <h4> : </h4>
                             </td>
                             <td>
-                              <select class="dropdownHeight" name="min_end">
+                              <select class="dropdownHeight" name="min_end" id="min_end" disabled="disabled" >
                                 <option value="00">00</option><option value="01">01</option><option value="02">02</option>
                                 <option value="03">03</option><option value="04">04</option><option value="05">05</option>
                                 <option value="06">06</option><option value="07">07</option><option value="08">08</option>
@@ -160,7 +172,29 @@
                               </select>
                             </td>
                           </tr>
-                        </table>             
+                        </table>
+                        <script>
+                        function setTime()
+                          {
+                            var el = document.getElementById("sometime");
+                            if(el.checked)
+                              document.getElementById("hour_start").disabled = false;
+                            else
+                             document.getElementById("hour_start").disabled = true; 
+                            if(el.checked)
+                              document.getElementById("min_start").disabled = false;
+                            else
+                             document.getElementById("min_start").disabled = true; 
+                            if(el.checked)
+                              document.getElementById("hour_end").disabled = false;
+                            else
+                             document.getElementById("hour_end").disabled = true; 
+                            if(el.checked)
+                              document.getElementById("min_end").disabled = false;
+                            else
+                             document.getElementById("min_end").disabled = true;        
+                          }
+                        </script>
                       </div>
                     </div>
 
@@ -168,20 +202,27 @@
                       <div class="col-sm-2 col-sm-offset-3">
                         <h4 align="right">Block Day :</h4> 
                       </div>
-                      <div class="col-sm-12">
-                        <div>
-                          <input type="radio" name="dayR" id="everyday" onchange="setDate();" value="SMTWHFA" checked="checked"/>Everyday
-                          <input type="radio" name="dayR" id="someday" onchange="setDate();"/>Someday
-                        </div>
-                        <div>
-                          <input type="checkbox" name="day[]" id="S" disabled="disabled" value="S" checked/>Sunday
-                          <input type="checkbox" name="day[]" id="M" disabled="disabled" value="M"/>Monday
-                          <input type="checkbox" name="day[]" id="T" disabled="disabled" value="T"/>Tuesday
-                          <input type="checkbox" name="day[]" id="W" disabled="disabled" value="W"/>Wednesday
-                          <input type="checkbox" name="day[]" id="H" disabled="disabled" value="H"/>Thursday
-                          <input type="checkbox" name="day[]" id="F" disabled="disabled" value="D"/>Friday
-                          <input type="checkbox" name="day[]" id="A" disabled="disabled" value="A"/>Saturday
-                        </div> 
+                      <div class="col-sm-5">
+                      <table>
+                        <tr>
+                          <td>
+                            <input type="radio" name="dayR" id="everyday" onchange="setDate();" value="SMTWHFA" checked="checked"/>Everyday
+                            <input type="radio" name="dayR" id="someday" onchange="setDate();"/>Someday
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="checkbox" name="day[]" id="S" disabled="disabled" value="S" checked/>Sunday
+                            <input type="checkbox" name="day[]" id="M" disabled="disabled" value="M"/>Monday
+                            <input type="checkbox" name="day[]" id="T" disabled="disabled" value="T"/>Tuesday
+                            <input type="checkbox" name="day[]" id="W" disabled="disabled" value="W"/>Wednesday
+                            <input type="checkbox" name="day[]" id="H" disabled="disabled" value="H"/>Thursday
+                            <input type="checkbox" name="day[]" id="F" disabled="disabled" value="D"/>Friday
+                            <input type="checkbox" name="day[]" id="A" disabled="disabled" value="A"/>Saturday
+                          </td>
+                        </tr>
+                      </table>
+                         
                         <script>
                           function setDate()
                           {
@@ -213,11 +254,10 @@
                             if(el.checked)
                               document.getElementById("A").disabled = false;
                             else
-                             document.getElementById("A").disabled = true;            
-                          } 
+                             document.getElementById("A").disabled = true;  
+                          }
                         </script>
                       </div>
-                     
                     </div>
 
                     <div class="row">
@@ -228,8 +268,6 @@
                       </div>
                     </div>
                   </form>
-                  
-                  <br>
                                     
                   <div class="row">
                     <div class="col-sm-12">
@@ -256,15 +294,16 @@
                                 echo "$data";
                                 echo '</div></th>';
                               }
+                              $i = 1;
                               while($my_row1=mysql_fetch_array($my_result))
                               {
                                 echo '<tr>';
                                 table("$i");
                                 table($my_row1["name"]);
-                                table($my_row1["url"]);
+                                table($my_row1["ip"]);
                                 table($my_row1["time"]);
                                 table($my_row1["day"]);
-                                table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/delete_ip_block.php?mac='.trim($my_row1["hw"]).'>Delete</button>');
+                                table('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever=/oak2/delete_ip_block.php?id='.trim($my_row1["id"]).'>Delete</button>');
                                 $i++;
                                 echo '</tr>';
                               }
@@ -279,10 +318,6 @@
                   </div>
 
                 </div><!--/Content-->
-
-                <?php include ("./underbar.php");?>
-
-                <hr>
               </div><!-- /col-12 -->
             </div><!-- /padding -->
           </div><!-- /Main Content -->
